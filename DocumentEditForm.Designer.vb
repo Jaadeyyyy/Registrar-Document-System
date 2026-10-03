@@ -31,14 +31,19 @@ Namespace RegistrarDocumentRequestSystem
             'lblDocumentName
             '
             Me.lblDocumentName.AutoSize = True
+            Me.lblDocumentName.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblDocumentName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblDocumentName.Location = New System.Drawing.Point(24, 28)
             Me.lblDocumentName.Name = "lblDocumentName"
-            Me.lblDocumentName.Size = New System.Drawing.Size(107, 17)
+            Me.lblDocumentName.Size = New System.Drawing.Size(110, 17)
             Me.lblDocumentName.TabIndex = 0
             Me.lblDocumentName.Text = "Document Name"
             '
             'txtDocumentName
             '
+            Me.txtDocumentName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.txtDocumentName.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.txtDocumentName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.txtDocumentName.Location = New System.Drawing.Point(160, 24)
             Me.txtDocumentName.Name = "txtDocumentName"
             Me.txtDocumentName.Size = New System.Drawing.Size(265, 25)
@@ -47,14 +52,19 @@ Namespace RegistrarDocumentRequestSystem
             'lblDescription
             '
             Me.lblDescription.AutoSize = True
+            Me.lblDescription.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblDescription.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblDescription.Location = New System.Drawing.Point(24, 78)
             Me.lblDescription.Name = "lblDescription"
-            Me.lblDescription.Size = New System.Drawing.Size(74, 17)
+            Me.lblDescription.Size = New System.Drawing.Size(79, 17)
             Me.lblDescription.TabIndex = 2
             Me.lblDescription.Text = "Description"
             '
             'txtDescription
             '
+            Me.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.txtDescription.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.txtDescription.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.txtDescription.Location = New System.Drawing.Point(160, 75)
             Me.txtDescription.Multiline = True
             Me.txtDescription.Name = "txtDescription"
@@ -64,14 +74,19 @@ Namespace RegistrarDocumentRequestSystem
             'lblFee
             '
             Me.lblFee.AutoSize = True
+            Me.lblFee.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblFee.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblFee.Location = New System.Drawing.Point(24, 158)
             Me.lblFee.Name = "lblFee"
-            Me.lblFee.Size = New System.Drawing.Size(28, 17)
+            Me.lblFee.Size = New System.Drawing.Size(29, 17)
             Me.lblFee.TabIndex = 4
             Me.lblFee.Text = "Fee"
             '
             'txtFee
             '
+            Me.txtFee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.txtFee.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.txtFee.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.txtFee.Location = New System.Drawing.Point(160, 155)
             Me.txtFee.Name = "txtFee"
             Me.txtFee.Size = New System.Drawing.Size(150, 25)
@@ -81,6 +96,8 @@ Namespace RegistrarDocumentRequestSystem
             '
             Me.btnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
             Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnSave.FlatAppearance.BorderSize = 1
             Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.btnSave.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
             Me.btnSave.ForeColor = System.Drawing.Color.White
@@ -96,6 +113,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.btnCancel.BackColor = System.Drawing.Color.White
             Me.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand
             Me.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnCancel.FlatAppearance.BorderSize = 1
             Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.btnCancel.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
             Me.btnCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))

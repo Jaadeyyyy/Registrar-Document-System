@@ -6,6 +6,7 @@ Namespace RegistrarDocumentRequestSystem
         Public Sub New()
             InitializeComponent()
             AppTheme.ApplyForm(Me)
+            AppTheme.EnsureLogo(picLogo)
             AppTheme.StyleTextBox(txtUsername)
             AppTheme.StyleTextBox(txtPassword)
             AppTheme.SetPlaceholder(txtUsername, "Enter username")

@@ -8,7 +8,7 @@ Namespace RegistrarDocumentRequestSystem
         Private ReadOnly targetUserId As Integer?
         Private ReadOnly isEditing As Boolean
 
-        Public Sub New(loggedInUserId As Integer, Optional userId As Integer? = Nothing)
+        Public Sub New(Optional loggedInUserId As Integer = 1, Optional userId As Integer? = Nothing)
             currentLoggedInUserId = loggedInUserId
             targetUserId = userId
             isEditing = userId.HasValue

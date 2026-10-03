@@ -8,6 +8,7 @@
     <OptionStrict>On</OptionStrict>
     <OptionExplicit>On</OptionExplicit>
     <OptionInfer>On</OptionInfer>
+    <ApplicationIcon>Resources\app.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -83,14 +84,6 @@
       <SubType>Code</SubType>
     </Compile>
 
-    <Compile Update="DashboardForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="DashboardForm.Designer.vb">
-      <DependentUpon>DashboardForm.vb</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-
     <Compile Update="StudentsForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -141,11 +134,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\logo.png">
+      <LogicalName>Resources.logo.png</LogicalName>
+    </EmbeddedResource>
     <EmbeddedResource Update="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Update="DashboardForm.resx">
-      <DependentUpon>DashboardForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="StudentsForm.resx">
       <DependentUpon>StudentsForm.vb</DependentUpon>
@@ -165,5 +158,11 @@
     <EmbeddedResource Update="UserAccountsForm.resx">
       <DependentUpon>UserAccountsForm.vb</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\**">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>

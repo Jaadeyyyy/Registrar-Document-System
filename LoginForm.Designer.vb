@@ -24,7 +24,7 @@ Namespace RegistrarDocumentRequestSystem
         <System.Diagnostics.DebuggerStepThrough()>
         Private Sub InitializeComponent()
             Me.pnlBrand = New System.Windows.Forms.Panel()
-            Me.lblSeal = New System.Windows.Forms.Label()
+            Me.picLogo = New System.Windows.Forms.PictureBox()
             Me.lblBrand = New System.Windows.Forms.Label()
             Me.pnlBrandRule = New System.Windows.Forms.Panel()
             Me.pnlGoldBar = New System.Windows.Forms.Panel()
@@ -38,13 +38,14 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblPasswordError = New System.Windows.Forms.Label()
             Me.btnLogin = New System.Windows.Forms.Button()
             Me.pnlCardLine = New System.Windows.Forms.Panel()
+            CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.pnlBrand.SuspendLayout()
             Me.SuspendLayout()
             '
             'pnlBrand
             '
             Me.pnlBrand.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.pnlBrand.Controls.Add(Me.lblSeal)
+            Me.pnlBrand.Controls.Add(Me.picLogo)
             Me.pnlBrand.Controls.Add(Me.lblBrand)
             Me.pnlBrand.Controls.Add(Me.pnlBrandRule)
             Me.pnlBrand.Controls.Add(Me.pnlGoldBar)
@@ -54,17 +55,16 @@ Namespace RegistrarDocumentRequestSystem
             Me.pnlBrand.Size = New System.Drawing.Size(330, 480)
             Me.pnlBrand.TabIndex = 0
             '
-            'lblSeal
+            'picLogo
             '
-            Me.lblSeal.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(52, Byte), Integer))
-            Me.lblSeal.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
-            Me.lblSeal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.lblSeal.Location = New System.Drawing.Point(44, 112)
-            Me.lblSeal.Name = "lblSeal"
-            Me.lblSeal.Size = New System.Drawing.Size(66, 66)
-            Me.lblSeal.TabIndex = 2
-            Me.lblSeal.Text = "R"
-            Me.lblSeal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+            Me.picLogo.BackColor = System.Drawing.Color.Transparent
+            Me.picLogo.Image = AppTheme.AppLogo
+            Me.picLogo.Location = New System.Drawing.Point(44, 96)
+            Me.picLogo.Name = "picLogo"
+            Me.picLogo.Size = New System.Drawing.Size(80, 80)
+            Me.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+            Me.picLogo.TabIndex = 2
+            Me.picLogo.TabStop = False
             '
             'lblBrand
             '
@@ -226,6 +226,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.Name = "LoginForm"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
             Me.Text = "Registrar Document Request System - Sign in"
+            CType(Me.picLogo, System.ComponentModel.ISupportInitialize).EndInit()
             Me.pnlBrand.ResumeLayout(False)
             Me.pnlBrand.PerformLayout()
             Me.ResumeLayout(False)
@@ -234,7 +235,7 @@ Namespace RegistrarDocumentRequestSystem
         End Sub
 
         Friend WithEvents pnlBrand As System.Windows.Forms.Panel
-        Friend WithEvents lblSeal As System.Windows.Forms.Label
+        Friend WithEvents picLogo As System.Windows.Forms.PictureBox
         Friend WithEvents lblBrand As System.Windows.Forms.Label
         Friend WithEvents pnlBrandRule As System.Windows.Forms.Panel
         Friend WithEvents pnlGoldBar As System.Windows.Forms.Panel

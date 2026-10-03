@@ -1,3 +1,4 @@
+Imports System.Drawing
 Imports System.Windows.Forms
 
 Namespace RegistrarDocumentRequestSystem
@@ -7,42 +8,55 @@ Namespace RegistrarDocumentRequestSystem
 
         Public Sub New()
             InitializeComponent()
-            AppTheme.ApplyForm(Me)
-            AppTheme.StyleButton(btnAddStudent, False)
-            AppTheme.StyleButton(btnEditStudent, True)
-            AppTheme.StyleButton(btnToggleStudentStatus, True)
-            AppTheme.StyleTextBox(txtSearchStudents)
-            AppTheme.SetPlaceholder(txtSearchStudents, "Search student ID, LRN, or name")
-            AppTheme.StyleGrid(dgvStudents)
+            cboStudentsStatus.SelectedIndex = 0
+            AppTheme.SetPlaceholder(txtSearchStudents, "Search student ID, LRN, or name...")
         End Sub
 
         Public Sub New(parent As MainForm, Optional activeOnly As Boolean = False)
             Me.New()
             mainForm = parent
             studentsActiveOnlyFilter = activeOnly
+            If activeOnly Then
+                cboStudentsStatus.SelectedIndex = 1 ' Active
+            End If
         End Sub
 
         Private Sub StudentsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+            If DesignMode OrElse System.ComponentModel.LicenseManager.UsageMode = System.ComponentModel.LicenseUsageMode.Designtime Then Return
             RefreshStudentsData()
         End Sub
 
         Public Sub RefreshStudentsData()
+            If DesignMode OrElse System.ComponentModel.LicenseManager.UsageMode = System.ComponentModel.LicenseUsageMode.Designtime Then Return
             Try
-                dgvStudents.DataSource = Database.GetTable(
-                    "SELECT StudentID, LRN, LastName, FirstName, MiddleName, Course, " &
-                    "YearLevel, Section, ContactNo, Status " &
-                    "FROM tblstudents " &
-                    "WHERE CONCAT_WS(' ',StudentID,LRN,LastName,FirstName,MiddleName) LIKE @search " &
-                    If(studentsActiveOnlyFilter, "AND Status='Active' ", String.Empty) &
-                    "ORDER BY LastName, FirstName",
-                    New Dictionary(Of String, Object) From {{"@search", "%" & txtSearchStudents.Text.Trim() & "%"}})
-                AppTheme.FitGridToRows(dgvStudents)
+                Dim statusCondition As String = String.Empty
+                If cboStudentsStatus.SelectedIndex = 1 Then
+                    statusCondition = "AND Status = 'Active' "
+                ElseIf cboStudentsStatus.SelectedIndex = 2 Then
+                    statusCondition = "AND Status = 'Inactive' "
+                ElseIf studentsActiveOnlyFilter Then
+                    statusCondition = "AND Status = 'Active' "
+                End If
+
+                Dim query = "SELECT StudentID, LRN, LastName, FirstName, MiddleName, Course, YearLevel, Section, ContactNo, Status " &
+                            "FROM tblstudents " &
+                            "WHERE (StudentID LIKE @search OR LRN LIKE @search OR LastName LIKE @search OR FirstName LIKE @search OR MiddleName LIKE @search) " &
+                            statusCondition &
+                            "ORDER BY LastName, FirstName"
+
+                Dim dt = Database.GetTable(query, New Dictionary(Of String, Object) From {{"@search", "%" & txtSearchStudents.Text.Trim() & "%"}})
+                dgvStudents.DataSource = dt
+                lblRecordCount.Text = $"{dt.Rows.Count} student records"
             Catch ex As Exception
                 MainForm.ShowDatabaseError(ex)
             End Try
         End Sub
 
         Private Sub txtSearchStudents_TextChanged(sender As Object, e As EventArgs) Handles txtSearchStudents.TextChanged
+            RefreshStudentsData()
+        End Sub
+
+        Private Sub cboStudentsStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboStudentsStatus.SelectedIndexChanged
             RefreshStudentsData()
         End Sub
 
@@ -59,7 +73,7 @@ Namespace RegistrarDocumentRequestSystem
                 MessageBox.Show("Select a student first.", "Student", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Return
             End If
-            Dim studentId = dgvStudents.CurrentRow.Cells("StudentID").Value.ToString()
+            Dim studentId = dgvStudents.CurrentRow.Cells("colStudentID").Value.ToString()
             Using dialog As New StudentEditForm(studentId)
                 If dialog.ShowDialog(Me) = DialogResult.OK Then
                     RefreshStudentsData()
@@ -72,9 +86,9 @@ Namespace RegistrarDocumentRequestSystem
                 MessageBox.Show("Select a student first.", "Student", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Return
             End If
-            Dim studentId = dgvStudents.CurrentRow.Cells("StudentID").Value.ToString()
-            Dim currentStatus = dgvStudents.CurrentRow.Cells("Status").Value.ToString()
-            Dim newStatus = If(currentStatus = AppTheme.ActiveStatus, AppTheme.InactiveStatus, AppTheme.ActiveStatus)
+            Dim studentId = dgvStudents.CurrentRow.Cells("colStudentID").Value.ToString()
+            Dim currentStatus = dgvStudents.CurrentRow.Cells("colStatus").Value.ToString()
+            Dim newStatus = If(currentStatus = "Active", "Inactive", "Active")
             If MessageBox.Show("Set student " & studentId & " to " & newStatus & "?",
                                "Confirm status", MessageBoxButtons.YesNo, MessageBoxIcon.Question) <> DialogResult.Yes Then Return
             Database.Execute("UPDATE tblstudents SET Status=@status WHERE StudentID=@id",
@@ -84,6 +98,19 @@ Namespace RegistrarDocumentRequestSystem
 
         Private Sub dgvStudents_DoubleClick(sender As Object, e As EventArgs) Handles dgvStudents.DoubleClick
             btnEditStudent.PerformClick()
+        End Sub
+
+        Private Sub dgvStudents_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgvStudents.CellFormatting
+            If e.RowIndex < 0 Then Return
+            If dgvStudents.Columns(e.ColumnIndex).Name = "colStatus" AndAlso e.Value IsNot Nothing Then
+                Dim val = e.Value.ToString()
+                If val = "Active" Then
+                    e.CellStyle.ForeColor = Color.FromArgb(22, 101, 52)
+                    e.CellStyle.Font = New Font(dgvStudents.Font, FontStyle.Bold)
+                Else
+                    e.CellStyle.ForeColor = Color.FromArgb(148, 163, 184)
+                End If
+            End If
         End Sub
     End Class
 End Namespace

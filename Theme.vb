@@ -20,6 +20,73 @@ Namespace RegistrarDocumentRequestSystem
         Public Const ActiveStatus As String = "Active"
         Public Const InactiveStatus As String = "Inactive"
 
+        Private _cachedLogo As Image = Nothing
+
+        Public ReadOnly Property AppLogo As Image
+            Get
+                If _cachedLogo Is Nothing Then
+                    Try
+                        ' 1. Check embedded manifest resource stream
+                        Dim asm = System.Reflection.Assembly.GetExecutingAssembly()
+                        For Each resName In asm.GetManifestResourceNames()
+                            If resName.EndsWith("logo.png", StringComparison.OrdinalIgnoreCase) Then
+                                Using stream = asm.GetManifestResourceStream(resName)
+                                    If stream IsNot Nothing Then
+                                        _cachedLogo = Image.FromStream(stream)
+                                        Return _cachedLogo
+                                    End If
+                                End Using
+                            End If
+                        Next
+
+                        ' 2. Check local Resources directory
+                        Dim candidates = {
+                            System.IO.Path.Combine(Application.StartupPath, "Resources", "logo.png"),
+                            System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "logo.png"),
+                            System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "Resources", "logo.png")
+                        }
+                        For Each path In candidates
+                            If System.IO.File.Exists(path) Then
+                                _cachedLogo = Image.FromFile(path)
+                                Return _cachedLogo
+                            End If
+                        Next
+                    Catch
+                    End Try
+                End If
+                Return _cachedLogo
+            End Get
+        End Property
+
+        Public Sub EnsureLogo(pic As PictureBox)
+            If pic IsNot Nothing AndAlso pic.Image Is Nothing Then
+                pic.Image = AppLogo
+            End If
+        End Sub
+
+        Private _cachedIcon As Icon = Nothing
+
+        Public ReadOnly Property AppIcon As Icon
+            Get
+                If _cachedIcon Is Nothing Then
+                    Try
+                        Dim iconCandidates = {
+                            System.IO.Path.Combine(Application.StartupPath, "Resources", "app.ico"),
+                            System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "app.ico")
+                        }
+                        For Each p In iconCandidates
+                            If System.IO.File.Exists(p) Then
+                                _cachedIcon = New Icon(p)
+                                Exit For
+                            End If
+                        Next
+                    Catch
+                    End Try
+                End If
+                Return _cachedIcon
+            End Get
+        End Property
+
         ' Inspired by the EmpowerED student portal: deep school navy,
         ' warm gold accents, clean white cards, and soft blue backgrounds.
         Public ReadOnly PrimaryColor As Color = Color.FromArgb(8, 52, 112)
@@ -38,6 +105,9 @@ Namespace RegistrarDocumentRequestSystem
             form.Font = New Font("Segoe UI", 10.0F)
             form.BackColor = BackgroundColor
             form.ForeColor = TextColor
+            If AppIcon IsNot Nothing Then
+                form.Icon = AppIcon
+            End If
         End Sub
 
         Public Sub StyleTextBox(input As TextBox)
@@ -92,31 +162,39 @@ Namespace RegistrarDocumentRequestSystem
             grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect
             grid.MultiSelect = False
             grid.BackgroundColor = SurfaceColor
-            grid.BorderStyle = BorderStyle.FixedSingle
-            grid.GridColor = BorderColor
+            grid.BorderStyle = BorderStyle.None
+            grid.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+            grid.GridColor = Color.FromArgb(226, 232, 240)
             grid.RowHeadersVisible = False
             grid.EnableHeadersVisualStyles = False
+            grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
             grid.ColumnHeadersHeight = 38
-            grid.RowTemplate.Height = 34
+            grid.RowTemplate.Height = 36
             grid.ColumnHeadersDefaultCellStyle = New DataGridViewCellStyle With {
-                .BackColor = PrimaryColor,
-                .ForeColor = Color.White,
-                .Font = New Font("Segoe UI", 9.0F, FontStyle.Bold),
+                .BackColor = Color.FromArgb(241, 245, 249),
+                .ForeColor = Color.FromArgb(51, 65, 85),
+                .SelectionBackColor = Color.FromArgb(241, 245, 249),
+                .SelectionForeColor = Color.FromArgb(51, 65, 85),
+                .Font = New Font("Segoe UI", 9.5F, FontStyle.Bold),
                 .Alignment = DataGridViewContentAlignment.MiddleLeft,
-                .Padding = New Padding(5, 0, 0, 0)
+                .Padding = New Padding(6, 0, 0, 0),
+                .WrapMode = DataGridViewTriState.True
             }
             grid.DefaultCellStyle = New DataGridViewCellStyle With {
                 .BackColor = SurfaceColor,
-                .ForeColor = TextColor,
-                .SelectionBackColor = AccentTintColor,
-                .SelectionForeColor = TextColor,
-                .Padding = New Padding(5, 0, 0, 0)
+                .ForeColor = Color.FromArgb(30, 41, 59),
+                .SelectionBackColor = Color.FromArgb(224, 238, 255),
+                .SelectionForeColor = Color.FromArgb(15, 36, 68),
+                .Padding = New Padding(6, 0, 0, 0),
+                .Font = New Font("Segoe UI", 9.5F),
+                .WrapMode = DataGridViewTriState.False
             }
             grid.AlternatingRowsDefaultCellStyle = New DataGridViewCellStyle With {
                 .BackColor = Color.FromArgb(248, 250, 252),
-                .ForeColor = TextColor,
-                .SelectionBackColor = AccentTintColor,
-                .SelectionForeColor = TextColor
+                .ForeColor = Color.FromArgb(30, 41, 59),
+                .SelectionBackColor = Color.FromArgb(224, 238, 255),
+                .SelectionForeColor = Color.FromArgb(15, 36, 68),
+                .Padding = New Padding(6, 0, 0, 0)
             }
             ApplyGridFormatting(grid)
         End Sub
@@ -129,12 +207,15 @@ Namespace RegistrarDocumentRequestSystem
                     Select Case value
                         Case "Active", "Paid", "Released"
                             e.CellStyle.ForeColor = Color.FromArgb(24, 132, 96)
+                            e.CellStyle.SelectionForeColor = Color.FromArgb(20, 100, 75)
                             e.CellStyle.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
                         Case "Inactive", "Unpaid", "Cancelled"
                             e.CellStyle.ForeColor = DangerColor
+                            e.CellStyle.SelectionForeColor = Color.FromArgb(160, 30, 30)
                             e.CellStyle.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
                         Case "Pending", "Processing", "Ready for Release"
                             e.CellStyle.ForeColor = Color.FromArgb(164, 103, 14)
+                            e.CellStyle.SelectionForeColor = Color.FromArgb(140, 80, 10)
                             e.CellStyle.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
                     End Select
                 End Sub
@@ -179,6 +260,8 @@ Namespace RegistrarDocumentRequestSystem
             grid.ColumnHeadersDefaultCellStyle = New DataGridViewCellStyle With {
                 .BackColor = PrimaryColor,
                 .ForeColor = Color.White,
+                .SelectionBackColor = PrimaryColor,
+                .SelectionForeColor = Color.White,
                 .Font = New Font("Segoe UI", 9.0F, FontStyle.Bold),
                 .Alignment = DataGridViewContentAlignment.MiddleLeft,
                 .Padding = New Padding(5, 0, 0, 0)
@@ -186,15 +269,15 @@ Namespace RegistrarDocumentRequestSystem
             grid.DefaultCellStyle = New DataGridViewCellStyle With {
                 .BackColor = SurfaceColor,
                 .ForeColor = TextColor,
-                .SelectionBackColor = AccentTintColor,
-                .SelectionForeColor = TextColor,
+                .SelectionBackColor = Color.FromArgb(224, 238, 255),
+                .SelectionForeColor = Color.FromArgb(15, 36, 68),
                 .Padding = New Padding(5, 0, 0, 0)
             }
             grid.AlternatingRowsDefaultCellStyle = New DataGridViewCellStyle With {
                 .BackColor = Color.FromArgb(248, 250, 252),
                 .ForeColor = TextColor,
-                .SelectionBackColor = AccentTintColor,
-                .SelectionForeColor = TextColor
+                .SelectionBackColor = Color.FromArgb(224, 238, 255),
+                .SelectionForeColor = Color.FromArgb(15, 36, 68)
             }
             AddHandler grid.CellFormatting,
                 Sub(sender As Object, e As DataGridViewCellFormattingEventArgs)

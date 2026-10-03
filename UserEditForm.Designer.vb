@@ -38,14 +38,19 @@ Namespace RegistrarDocumentRequestSystem
             'lblUsername
             '
             Me.lblUsername.AutoSize = True
+            Me.lblUsername.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblUsername.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblUsername.Location = New System.Drawing.Point(24, 28)
             Me.lblUsername.Name = "lblUsername"
-            Me.lblUsername.Size = New System.Drawing.Size(67, 17)
+            Me.lblUsername.Size = New System.Drawing.Size(69, 17)
             Me.lblUsername.TabIndex = 0
             Me.lblUsername.Text = "Username"
             '
             'txtUsername
             '
+            Me.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.txtUsername.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.txtUsername.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.txtUsername.Location = New System.Drawing.Point(160, 24)
             Me.txtUsername.Name = "txtUsername"
             Me.txtUsername.Size = New System.Drawing.Size(285, 25)
@@ -62,14 +67,19 @@ Namespace RegistrarDocumentRequestSystem
             'lblFullName
             '
             Me.lblFullName.AutoSize = True
+            Me.lblFullName.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblFullName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblFullName.Location = New System.Drawing.Point(24, 91)
             Me.lblFullName.Name = "lblFullName"
-            Me.lblFullName.Size = New System.Drawing.Size(66, 17)
+            Me.lblFullName.Size = New System.Drawing.Size(71, 17)
             Me.lblFullName.TabIndex = 3
             Me.lblFullName.Text = "Full Name"
             '
             'txtFullName
             '
+            Me.txtFullName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.txtFullName.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.txtFullName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.txtFullName.Location = New System.Drawing.Point(160, 87)
             Me.txtFullName.Name = "txtFullName"
             Me.txtFullName.Size = New System.Drawing.Size(285, 25)
@@ -86,21 +96,27 @@ Namespace RegistrarDocumentRequestSystem
             'lblRole
             '
             Me.lblRole.AutoSize = True
+            Me.lblRole.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblRole.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblRole.Location = New System.Drawing.Point(24, 154)
             Me.lblRole.Name = "lblRole"
-            Me.lblRole.Size = New System.Drawing.Size(34, 17)
+            Me.lblRole.Size = New System.Drawing.Size(35, 17)
             Me.lblRole.TabIndex = 6
             Me.lblRole.Text = "Role"
             '
             'cboRole
             '
             Me.cboRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+            Me.cboRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.cboRole.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.cboRole.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.cboRole.FormattingEnabled = True
             Me.cboRole.Items.AddRange(New Object() {"Administrator", "Registrar Staff"})
             Me.cboRole.Location = New System.Drawing.Point(160, 150)
             Me.cboRole.Name = "cboRole"
             Me.cboRole.Size = New System.Drawing.Size(285, 25)
             Me.cboRole.TabIndex = 7
+            Me.cboRole.Text = "Registrar Staff"
             '
             'lblRoleError
             '
@@ -113,14 +129,19 @@ Namespace RegistrarDocumentRequestSystem
             'lblPassword
             '
             Me.lblPassword.AutoSize = True
+            Me.lblPassword.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblPassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblPassword.Location = New System.Drawing.Point(24, 217)
             Me.lblPassword.Name = "lblPassword"
-            Me.lblPassword.Size = New System.Drawing.Size(64, 17)
+            Me.lblPassword.Size = New System.Drawing.Size(66, 17)
             Me.lblPassword.TabIndex = 9
             Me.lblPassword.Text = "Password"
             '
             'txtPassword
             '
+            Me.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.txtPassword.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.txtPassword.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.txtPassword.Location = New System.Drawing.Point(160, 213)
             Me.txtPassword.Name = "txtPassword"
             Me.txtPassword.Size = New System.Drawing.Size(285, 25)
@@ -142,7 +163,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblPasswordNote.ForeColor = System.Drawing.Color.FromArgb(CType(CType(101, Byte), Integer), CType(CType(116, Byte), Integer), CType(CType(139, Byte), Integer))
             Me.lblPasswordNote.Location = New System.Drawing.Point(160, 260)
             Me.lblPasswordNote.Name = "lblPasswordNote"
-            Me.lblPasswordNote.Size = New System.Drawing.Size(161, 15)
+            Me.lblPasswordNote.Size = New System.Drawing.Size(138, 15)
             Me.lblPasswordNote.TabIndex = 12
             Me.lblPasswordNote.Text = "Use at least 6 characters."
             '
@@ -150,6 +171,8 @@ Namespace RegistrarDocumentRequestSystem
             '
             Me.btnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
             Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnSave.FlatAppearance.BorderSize = 1
             Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.btnSave.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
             Me.btnSave.ForeColor = System.Drawing.Color.White
@@ -165,6 +188,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.btnCancel.BackColor = System.Drawing.Color.White
             Me.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand
             Me.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnCancel.FlatAppearance.BorderSize = 1
             Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.btnCancel.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
             Me.btnCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))

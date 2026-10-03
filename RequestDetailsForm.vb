@@ -5,13 +5,33 @@ Namespace RegistrarDocumentRequestSystem
     Partial Public Class RequestDetailsForm
         Private ReadOnly targetRequestId As Integer
 
-        Public Sub New(requestId As Integer)
-            targetRequestId = requestId
+        Public Sub New()
             InitializeComponent()
             AppTheme.ApplyForm(Me)
             AppTheme.StyleButton(btnClose, True)
             AppTheme.StyleGrid(dgvItems)
-            LoadDetails()
+        End Sub
+
+        Public Sub New(requestId As Integer)
+            Me.New()
+            targetRequestId = requestId
+            If System.ComponentModel.LicenseManager.UsageMode <> System.ComponentModel.LicenseUsageMode.Designtime Then
+                LoadDetails()
+            End If
+        End Sub
+
+        Public Sub New(requestNo As String)
+            Me.New()
+            Try
+                Dim res = Database.Scalar("SELECT RequestID FROM tblrequest WHERE RequestNo=@no", New Dictionary(Of String, Object) From {{"@no", requestNo}})
+                If res IsNot Nothing AndAlso Not IsDBNull(res) Then
+                    targetRequestId = Convert.ToInt32(res)
+                    If System.ComponentModel.LicenseManager.UsageMode <> System.ComponentModel.LicenseUsageMode.Designtime Then
+                        LoadDetails()
+                    End If
+                End If
+            Catch ex As Exception
+            End Try
         End Sub
 
         Private Sub LoadDetails()
@@ -32,6 +52,10 @@ Namespace RegistrarDocumentRequestSystem
                               If(DBNull.Value.Equals(row("ORNo")), String.Empty, "  |  OR: " & row("ORNo").ToString()) &
                               "  |  Status: " & row("Status").ToString() &
                               Environment.NewLine & "Recorded by: " & row("CreatedBy").ToString()
+
+            If dgvItems.DataSource Is Nothing Then
+                dgvItems.Rows.Clear()
+            End If
 
             dgvItems.DataSource = Database.GetTable(
                 "SELECT d.DocumentName, rd.Quantity, rd.Amount, rd.SubTotal " &

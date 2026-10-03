@@ -9,13 +9,33 @@ Namespace RegistrarDocumentRequestSystem
         Private ReadOnly requestId As Integer
         Private receiptText As String = String.Empty
 
-        Public Sub New(id As Integer)
-            requestId = id
+        Public Sub New()
             InitializeComponent()
             AppTheme.ApplyForm(Me)
             AppTheme.StyleButton(btnPrint, False)
             AppTheme.StyleButton(btnClose, True)
-            LoadReceipt()
+        End Sub
+
+        Public Sub New(id As Integer)
+            Me.New()
+            requestId = id
+            If System.ComponentModel.LicenseManager.UsageMode <> System.ComponentModel.LicenseUsageMode.Designtime Then
+                LoadReceipt()
+            End If
+        End Sub
+
+        Public Sub New(requestNo As String)
+            Me.New()
+            Try
+                Dim res = Database.Scalar("SELECT RequestID FROM tblrequest WHERE RequestNo=@no", New Dictionary(Of String, Object) From {{"@no", requestNo}})
+                If res IsNot Nothing AndAlso Not IsDBNull(res) Then
+                    requestId = Convert.ToInt32(res)
+                    If System.ComponentModel.LicenseManager.UsageMode <> System.ComponentModel.LicenseUsageMode.Designtime Then
+                        LoadReceipt()
+                    End If
+                End If
+            Catch ex As Exception
+            End Try
         End Sub
 
         Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click

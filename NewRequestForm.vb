@@ -1,310 +1,297 @@
 Imports System.Data
+Imports System.Drawing
 Imports System.Windows.Forms
 Imports MySql.Data.MySqlClient
 
 Namespace RegistrarDocumentRequestSystem
     Partial Public Class NewRequestForm
         Private ReadOnly mainForm As MainForm
-        Private ReadOnly currentUserId As Integer
-        Private ReadOnly requestItems As New DataTable()
         Private selectedStudentId As String = String.Empty
-        Private isSelectingStudent As Boolean = False
+        Private documentsTable As DataTable
+        Private ReadOnly requestItems As New DataTable()
 
         Public Sub New()
             InitializeComponent()
-            AppTheme.ApplyForm(Me)
-            AppTheme.StyleTextBox(txtSearchStudent)
-            AppTheme.SetPlaceholder(txtSearchStudent, "Search student ID, LRN, or name")
-            AppTheme.StyleTextBox(txtPurpose)
-            AppTheme.SetPlaceholder(txtPurpose, "Purpose (example: Scholarship or school requirement)")
-            AppTheme.StyleComboBox(cboDocument)
-            AppTheme.StyleButton(btnAddItem, False)
-            AppTheme.StyleButton(btnRemoveItem, True)
-            AppTheme.StyleButton(btnSaveRequest, False)
-            AppTheme.StyleGrid(dgvRequestItems)
-            PrepareRequestItems()
-            dgvRequestItems.AutoGenerateColumns = False
-            dgvRequestItems.DataSource = requestItems
+            InitializeItemsTable()
+            AppTheme.SetPlaceholder(txtSearchStudent, "Type student ID, LRN, or name to search...")
+            AppTheme.SetPlaceholder(txtPurpose, "Enter purpose (e.g., Employment, Scholarship, Transfer)...")
         End Sub
 
-        Public Sub New(parent As MainForm, userId As Integer)
+        Public Sub New(parent As MainForm)
             Me.New()
             mainForm = parent
-            currentUserId = userId
         End Sub
 
-        Private Sub NewRequestForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-            LoadNewRequestInitialData()
-        End Sub
-
-        Private Sub PrepareRequestItems()
-            requestItems.Clear()
+        Private Sub InitializeItemsTable()
             requestItems.Columns.Clear()
             requestItems.Columns.Add("DocumentID", GetType(Integer))
-            requestItems.Columns.Add("Document", GetType(String))
+            requestItems.Columns.Add("DocumentName", GetType(String))
             requestItems.Columns.Add("Fee", GetType(Decimal))
             requestItems.Columns.Add("Quantity", GetType(Integer))
             requestItems.Columns.Add("Subtotal", GetType(Decimal))
+            dgvRequestItems.DataSource = requestItems
         End Sub
 
-        Public Sub LoadNewRequestInitialData()
-            Try
-                isSelectingStudent = True
-                selectedStudentId = String.Empty
-                txtSearchStudent.Text = String.Empty
-                isSelectingStudent = False
-                lstStudentResults.Visible = False
-                lblStudentInfo.Text = String.Empty
-                lblStudentError.Text = String.Empty
-                txtPurpose.Text = String.Empty
-                PrepareRequestItems()
-                UpdateTotal()
+        Private Sub NewRequestForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+            If DesignMode OrElse System.ComponentModel.LicenseManager.UsageMode = System.ComponentModel.LicenseUsageMode.Designtime Then Return
+            LoadDocuments()
+        End Sub
 
-                cboDocument.DataSource = Database.GetTable(
-                    "SELECT DocumentID, DocumentName, Fee FROM tbldocuments WHERE Status='Active' ORDER BY DocumentName")
+        Private Sub LoadDocuments()
+            If DesignMode OrElse System.ComponentModel.LicenseManager.UsageMode = System.ComponentModel.LicenseUsageMode.Designtime Then Return
+            Try
+                documentsTable = Database.GetTable("SELECT DocumentID, DocumentName, Fee FROM tbldocuments WHERE Status='Active' ORDER BY DocumentName")
+                cboDocument.DataSource = documentsTable
                 cboDocument.DisplayMember = "DocumentName"
                 cboDocument.ValueMember = "DocumentID"
+                UpdateUnitFee()
             Catch ex As Exception
                 MainForm.ShowDatabaseError(ex)
             End Try
         End Sub
 
         Private Sub txtSearchStudent_TextChanged(sender As Object, e As EventArgs) Handles txtSearchStudent.TextChanged
-            If isSelectingStudent Then Return
-
-            selectedStudentId = String.Empty
-            lblStudentInfo.Text = String.Empty
-            lblStudentError.Text = String.Empty
-
-            Dim query = txtSearchStudent.Text.Trim()
-            If query.Length < 1 Then
-                lstStudentResults.Visible = False
+            If DesignMode OrElse System.ComponentModel.LicenseManager.UsageMode = System.ComponentModel.LicenseUsageMode.Designtime Then Return
+            Dim search = txtSearchStudent.Text.Trim()
+            If search.Length < 1 Then
+                cboStudentSearchResults.DataSource = Nothing
                 Return
             End If
 
             Try
                 Dim dt = Database.GetTable(
-                    "SELECT StudentID, " &
-                    "CONCAT(LastName, ', ', FirstName, ' (', StudentID, ') - ', Course, ' ', YearLevel, Section) AS DisplayText, " &
-                    "CONCAT(LastName, ', ', FirstName, ' (', StudentID, ')') AS ShortDisplay, " &
-                    "Course, YearLevel, Section " &
+                    "SELECT StudentID, LRN, LastName, FirstName, Course, YearLevel, Section " &
                     "FROM tblstudents " &
-                    "WHERE Status='Active' AND (" &
-                    "StudentID LIKE @q OR LRN LIKE @q OR LastName LIKE @q OR FirstName LIKE @q OR " &
-                    "CONCAT(FirstName, ' ', LastName) LIKE @q OR CONCAT(LastName, ' ', FirstName) LIKE @q) " &
+                    "WHERE Status='Active' AND (StudentID LIKE @s OR LRN LIKE @s OR LastName LIKE @s OR FirstName LIKE @s) " &
                     "ORDER BY LastName, FirstName LIMIT 15",
-                    New Dictionary(Of String, Object) From {{"@q", "%" & query & "%"}})
+                    New Dictionary(Of String, Object) From {{"@s", "%" & search & "%"}})
+
+                dt.Columns.Add("DisplayText", GetType(String))
+                For Each row As DataRow In dt.Rows
+                    row("DisplayText") = $"{row("StudentID")} - {row("LastName")}, {row("FirstName")} ({row("Course")} {row("YearLevel")}-{row("Section")})"
+                Next
+
+                cboStudentSearchResults.DataSource = dt
+                cboStudentSearchResults.DisplayMember = "DisplayText"
+                cboStudentSearchResults.ValueMember = "StudentID"
 
                 If dt.Rows.Count > 0 Then
-                    lstStudentResults.DataSource = dt
-                    lstStudentResults.DisplayMember = "DisplayText"
-                    lstStudentResults.ValueMember = "StudentID"
-                    lstStudentResults.Visible = True
-                    lstStudentResults.BringToFront()
+                    cboStudentSearchResults.SelectedIndex = 0
+                    SelectStudent(dt.Rows(0))
                 Else
-                    lstStudentResults.DataSource = Nothing
-                    lstStudentResults.Visible = False
-                    lblStudentInfo.Text = "No active student found."
-                    lblStudentInfo.ForeColor = AppTheme.DangerColor
+                    ClearSelectedStudent()
                 End If
             Catch ex As Exception
-                lstStudentResults.Visible = False
+                MainForm.ShowDatabaseError(ex)
             End Try
         End Sub
 
-        Private Sub SelectStudentFromList()
-            If lstStudentResults.SelectedItem IsNot Nothing AndAlso TypeOf lstStudentResults.SelectedItem Is DataRowView Then
-                Dim row = DirectCast(lstStudentResults.SelectedItem, DataRowView)
-                selectedStudentId = row("StudentID").ToString()
-                lblStudentInfo.Text = row("Course").ToString() & " • Year " &
-                                     row("YearLevel").ToString() & " • " &
-                                     row("Section").ToString()
-                lblStudentInfo.ForeColor = AppTheme.AccentColor
-                lblStudentError.Text = String.Empty
-
-                isSelectingStudent = True
-                txtSearchStudent.Text = row("ShortDisplay").ToString()
-                isSelectingStudent = False
-
-                lstStudentResults.Visible = False
-                txtPurpose.Focus()
+        Private Sub cboStudentSearchResults_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboStudentSearchResults.SelectedIndexChanged
+            If cboStudentSearchResults.SelectedItem IsNot Nothing AndAlso TypeOf cboStudentSearchResults.SelectedItem Is DataRowView Then
+                Dim row = DirectCast(cboStudentSearchResults.SelectedItem, DataRowView).Row
+                SelectStudent(row)
             End If
         End Sub
 
-        Private Sub lstStudentResults_Click(sender As Object, e As EventArgs) Handles lstStudentResults.Click
-            SelectStudentFromList()
+        Private Sub SelectStudent(row As DataRow)
+            selectedStudentId = row("StudentID").ToString()
+            lblStudentIdVal.Text = "Student ID: " & selectedStudentId
+            lblStudentNameVal.Text = "Name: " & $"{row("FirstName")} {row("LastName")}"
+            lblStudentCourseVal.Text = "Course: " & row("Course").ToString()
+            lblStudentYearSectionVal.Text = "Year & Section: " & $"{row("YearLevel")} - {row("Section")}"
         End Sub
 
-        Private Sub lstStudentResults_KeyDown(sender As Object, e As KeyEventArgs) Handles lstStudentResults.KeyDown
-            If e.KeyCode = Keys.Enter Then
-                SelectStudentFromList()
-                e.Handled = True
-                e.SuppressKeyPress = True
-            ElseIf e.KeyCode = Keys.Escape Then
-                lstStudentResults.Visible = False
-                txtSearchStudent.Focus()
-                e.Handled = True
+        Private Sub ClearSelectedStudent()
+            selectedStudentId = String.Empty
+            lblStudentIdVal.Text = "Student ID: None selected"
+            lblStudentNameVal.Text = "Name: -"
+            lblStudentCourseVal.Text = "Course: -"
+            lblStudentYearSectionVal.Text = "Year & Section: -"
+        End Sub
+
+        Private Sub cboDocument_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboDocument.SelectedIndexChanged
+            UpdateUnitFee()
+        End Sub
+
+        Private Sub UpdateUnitFee()
+            If cboDocument.SelectedItem IsNot Nothing AndAlso TypeOf cboDocument.SelectedItem Is DataRowView Then
+                Dim row = DirectCast(cboDocument.SelectedItem, DataRowView).Row
+                Dim fee = Convert.ToDecimal(row("Fee"))
+                lblUnitFee.Text = "Fee: ₱" & fee.ToString("N2")
+            Else
+                lblUnitFee.Text = "Fee: ₱0.00"
             End If
-        End Sub
-
-        Private Sub txtSearchStudent_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSearchStudent.KeyDown
-            If e.KeyCode = Keys.Down AndAlso lstStudentResults.Visible AndAlso lstStudentResults.Items.Count > 0 Then
-                lstStudentResults.Focus()
-                lstStudentResults.SelectedIndex = 0
-                e.Handled = True
-            ElseIf e.KeyCode = Keys.Enter Then
-                If lstStudentResults.Visible AndAlso lstStudentResults.Items.Count > 0 Then
-                    lstStudentResults.SelectedIndex = 0
-                    SelectStudentFromList()
-                End If
-                e.Handled = True
-                e.SuppressKeyPress = True
-            ElseIf e.KeyCode = Keys.Escape Then
-                lstStudentResults.Visible = False
-                e.Handled = True
-            End If
-        End Sub
-
-        Private Sub Controls_HideSuggestions(sender As Object, e As EventArgs) Handles _
-            txtPurpose.GotFocus, cboDocument.GotFocus, nudQuantity.GotFocus, btnAddItem.GotFocus, dgvRequestItems.GotFocus
-            lstStudentResults.Visible = False
-        End Sub
-
-        Private Sub txtPurpose_TextChanged(sender As Object, e As EventArgs) Handles txtPurpose.TextChanged
-            lblPurposeError.Text = String.Empty
         End Sub
 
         Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
-            If cboDocument.SelectedItem Is Nothing Then Return
-            Dim selected = DirectCast(cboDocument.SelectedItem, DataRowView)
-            Dim documentId = Convert.ToInt32(selected("DocumentID"))
-            Dim fee = Convert.ToDecimal(selected("Fee"))
-            Dim itemQuantity = Convert.ToInt32(nudQuantity.Value)
-            Dim existing = requestItems.Select("DocumentID=" & documentId.ToString())
-            If existing.Length > 0 Then
-                existing(0)("Quantity") = Convert.ToInt32(existing(0)("Quantity")) + itemQuantity
-                existing(0)("Subtotal") = Convert.ToDecimal(existing(0)("Fee")) * Convert.ToInt32(existing(0)("Quantity"))
-            Else
-                requestItems.Rows.Add(documentId, selected("DocumentName").ToString(), fee,
-                                      itemQuantity, fee * itemQuantity)
+            If cboDocument.SelectedItem Is Nothing Then
+                MessageBox.Show("Please select a document.", "New Request", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
             End If
-            lblItemError.Text = String.Empty
-            UpdateTotal()
+
+            Dim row = DirectCast(cboDocument.SelectedItem, DataRowView).Row
+            Dim docId = Convert.ToInt32(row("DocumentID"))
+            Dim docName = row("DocumentName").ToString()
+            Dim fee = Convert.ToDecimal(row("Fee"))
+            Dim qty = Convert.ToInt32(numQuantity.Value)
+
+            For Each r As DataRow In requestItems.Rows
+                If Convert.ToInt32(r("DocumentID")) = docId Then
+                    r("Quantity") = Convert.ToInt32(r("Quantity")) + qty
+                    r("Subtotal") = Convert.ToDecimal(r("Quantity")) * fee
+                    CalculateTotal()
+                    numQuantity.Value = 1
+                    Return
+                End If
+            Next
+
+            requestItems.Rows.Add(docId, docName, fee, qty, fee * qty)
+            CalculateTotal()
+            numQuantity.Value = 1
         End Sub
 
         Private Sub btnRemoveItem_Click(sender As Object, e As EventArgs) Handles btnRemoveItem.Click
-            If dgvRequestItems.CurrentRow Is Nothing Then Return
-            requestItems.Rows.RemoveAt(dgvRequestItems.CurrentRow.Index)
-            UpdateTotal()
+            If dgvRequestItems.CurrentRow Is Nothing Then
+                MessageBox.Show("Select an item to remove.", "New Request", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Return
+            End If
+
+            Dim index = dgvRequestItems.CurrentRow.Index
+            requestItems.Rows.RemoveAt(index)
+            CalculateTotal()
         End Sub
 
-        Private Sub UpdateTotal()
-            Dim total As Decimal = 0D
-            For Each row As DataRow In requestItems.Rows
-                total += Convert.ToDecimal(row("Subtotal"))
+        Private Sub CalculateTotal()
+            Dim total As Decimal = 0
+            For Each r As DataRow In requestItems.Rows
+                total += Convert.ToDecimal(r("Subtotal"))
             Next
-            lblTotalAmount.Text = "Total Amount: " & total.ToString("N2")
-            AppTheme.FitGridToRows(dgvRequestItems, 245)
-            lblTotalAmount.Top = dgvRequestItems.Bottom + 16
-            btnSaveRequest.Top = lblTotalAmount.Bottom + 14
+            lblTotalAmount.Text = "₱" & total.ToString("N2")
+        End Sub
+
+        Private Sub btnReset_Click(sender As Object, e As EventArgs) Handles btnReset.Click
+            ResetForm()
+        End Sub
+
+        Private Sub ResetForm()
+            txtSearchStudent.Clear()
+            cboStudentSearchResults.DataSource = Nothing
+            ClearSelectedStudent()
+            txtPurpose.Clear()
+            requestItems.Rows.Clear()
+            numQuantity.Value = 1
+            CalculateTotal()
         End Sub
 
         Private Sub btnSaveRequest_Click(sender As Object, e As EventArgs) Handles btnSaveRequest.Click
-            lblStudentError.Text = String.Empty
-            lblPurposeError.Text = String.Empty
-            lblItemError.Text = String.Empty
-            Dim valid = True
-            If String.IsNullOrWhiteSpace(selectedStudentId) Then
-                lblStudentError.Text = "Please search and select an active student."
-                valid = False
+            If String.IsNullOrEmpty(selectedStudentId) Then
+                MessageBox.Show("Please select an active student first.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                txtSearchStudent.Focus()
+                Return
             End If
-            If String.IsNullOrWhiteSpace(txtPurpose.Text) Then
-                lblPurposeError.Text = "Purpose is required."
-                valid = False
-            End If
-            If requestItems.Rows.Count = 0 Then
-                lblItemError.Text = "Add at least one document."
-                valid = False
-            End If
-            If valid Then SaveRequest(txtPurpose.Text.Trim())
-        End Sub
 
-        Private Sub SaveRequest(purpose As String)
-            Dim total As Decimal = 0D
-            For Each row As DataRow In requestItems.Rows
-                total += Convert.ToDecimal(row("Subtotal"))
+            If String.IsNullOrWhiteSpace(txtPurpose.Text) Then
+                MessageBox.Show("Please enter the purpose of request.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                txtPurpose.Focus()
+                Return
+            End If
+
+            If requestItems.Rows.Count = 0 Then
+                MessageBox.Show("Please add at least one document to the request.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            Dim total As Decimal = 0
+            For Each r As DataRow In requestItems.Rows
+                total += Convert.ToDecimal(r("Subtotal"))
             Next
 
-            Using connection = Database.GetConnection()
-                connection.Open()
-                Using transaction = connection.BeginTransaction(IsolationLevel.ReadCommitted)
-                    Try
-                        Dim requestNumber As String
-                        Dim requestId As Integer
-                        Using command As New MySqlCommand() With {.Connection = connection, .Transaction = transaction}
-                            requestNumber = GenerateRequestNumber(command)
-                            command.Parameters.Clear()
-                            command.CommandText =
-                                "INSERT INTO tblrequest " &
-                                "(RequestNo,StudentID,RequestDate,Purpose,TotalAmount,PaymentStatus,Status,CreatedBy) " &
-                                "VALUES (@number,@studentId,CURDATE(),@purpose,@total,'Unpaid','Pending',@createdBy)"
-                            Database.AddParameters(command, New Dictionary(Of String, Object) From {
-                                {"@number", requestNumber}, {"@studentId", selectedStudentId},
-                                {"@purpose", purpose}, {"@total", total}, {"@createdBy", currentUserId}
-                            })
-                            command.ExecuteNonQuery()
-                            requestId = Convert.ToInt32(command.LastInsertedId)
+            Dim requestNo = GenerateRequestNumber()
+            Dim userId = If(mainForm IsNot Nothing, mainForm.CurrentUserID, 1)
 
-                            For Each item As DataRow In requestItems.Rows
-                                command.Parameters.Clear()
-                                command.CommandText =
-                                    "INSERT INTO tblrequestdetails " &
-                                    "(RequestID,DocumentID,Quantity,Amount,SubTotal) " &
-                                    "VALUES (@requestId,@documentId,@quantity,@amount,@subtotal)"
-                                Database.AddParameters(command, New Dictionary(Of String, Object) From {
-                                    {"@requestId", requestId}, {"@documentId", item("DocumentID")},
-                                    {"@quantity", item("Quantity")}, {"@amount", item("Fee")},
-                                    {"@subtotal", item("Subtotal")}
-                                })
-                                command.ExecuteNonQuery()
-                            Next
+            Using conn = Database.GetConnection()
+                conn.Open()
+                Using trans = conn.BeginTransaction()
+                    Try
+                        Dim insertReq = "INSERT INTO tblrequest (RequestNo, StudentID, RequestDate, Purpose, TotalAmount, PaymentStatus, Status, CreatedBy) " &
+                                        "VALUES (@no, @sid, NOW(), @purp, @total, 'Unpaid', 'Pending', @uid);"
+                        Using cmd As New MySqlCommand(insertReq, conn, trans)
+                            cmd.Parameters.AddWithValue("@no", requestNo)
+                            cmd.Parameters.AddWithValue("@sid", selectedStudentId)
+                            cmd.Parameters.AddWithValue("@purp", txtPurpose.Text.Trim())
+                            cmd.Parameters.AddWithValue("@total", total)
+                            cmd.Parameters.AddWithValue("@uid", userId)
+                            cmd.ExecuteNonQuery()
                         End Using
-                        transaction.Commit()
-                        Using receipt As New ReceiptForm(requestId)
-                            receipt.ShowDialog(Me)
+
+                        Dim requestId As Long
+                        Using cmd As New MySqlCommand("SELECT LAST_INSERT_ID();", conn, trans)
+                            requestId = Convert.ToInt64(cmd.ExecuteScalar())
                         End Using
-                        LoadNewRequestInitialData()
-                        If mainForm IsNot Nothing Then
-                            mainForm.ShowRequests(requestNumber)
+
+                        Dim insertItem = "INSERT INTO tblrequestdetails (RequestID, DocumentID, Quantity, Amount, SubTotal) " &
+                                         "VALUES (@rid, @did, @qty, @price, @subtotal);"
+                        For Each r As DataRow In requestItems.Rows
+                            Using cmd As New MySqlCommand(insertItem, conn, trans)
+                                cmd.Parameters.AddWithValue("@rid", requestId)
+                                cmd.Parameters.AddWithValue("@did", r("DocumentID"))
+                                cmd.Parameters.AddWithValue("@qty", r("Quantity"))
+                                cmd.Parameters.AddWithValue("@price", r("Fee"))
+                                cmd.Parameters.AddWithValue("@subtotal", r("Subtotal"))
+                                cmd.ExecuteNonQuery()
+                            End Using
+                        Next
+
+                        trans.Commit()
+
+                        MessageBox.Show($"Request {requestNo} has been saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                        If MessageBox.Show("Would you like to print or view the request slip / receipt now?", "Print Slip", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                            Using rec As New ReceiptForm(requestNo)
+                                rec.ShowDialog(Me)
+                            End Using
                         End If
+
+                        ResetForm()
                     Catch ex As Exception
-                        Try
-                            transaction.Rollback()
-                        Catch
-                        End Try
-                        MessageBox.Show(ex.Message, "Could not save request", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        trans.Rollback()
+                        MessageBox.Show("Failed to save request: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End Try
                 End Using
             End Using
         End Sub
 
-        Private Function GenerateRequestNumber(command As MySqlCommand) As String
-            Dim requestYear = Date.Today.Year
-            command.Parameters.Clear()
-            command.CommandText =
-                "INSERT IGNORE INTO tblrequestsequence(RequestYear,LastNumber) VALUES(@year,0)"
-            command.Parameters.AddWithValue("@year", requestYear)
-            command.ExecuteNonQuery()
-
-            command.CommandText =
-                "UPDATE tblrequestsequence " &
-                "SET LastNumber=LAST_INSERT_ID(LastNumber+1) WHERE RequestYear=@year"
-            command.ExecuteNonQuery()
-
-            command.Parameters.Clear()
-            command.CommandText = "SELECT LAST_INSERT_ID()"
-            Dim nextNumber = Convert.ToInt32(command.ExecuteScalar())
-            Return "REQ-" & requestYear.ToString() & "-" & nextNumber.ToString("D5")
+        Private Function GenerateRequestNumber() As String
+            Dim year = DateTime.Now.Year.ToString()
+            Dim prefix = "REQ-" & year & "-"
+            Try
+                Dim result = Database.Scalar("SELECT RequestNo FROM tblrequest WHERE RequestNo LIKE @p ORDER BY RequestID DESC LIMIT 1",
+                                             New Dictionary(Of String, Object) From {{"@p", prefix & "%"}})
+                If result IsNot Nothing AndAlso Not IsDBNull(result) Then
+                    Dim lastNo = result.ToString()
+                    Dim parts = lastNo.Split("-"c)
+                    If parts.Length = 3 Then
+                        Dim num As Integer
+                        If Integer.TryParse(parts(2), num) Then
+                            Return prefix & (num + 1).ToString("D4")
+                        End If
+                    End If
+                End If
+            Catch ex As Exception
+                ' Fallback
+            End Try
+            Return prefix & "0001"
         End Function
+
+        Private Sub dgvRequestItems_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgvRequestItems.CellFormatting
+            If e.RowIndex < 0 Then Return
+            If (dgvRequestItems.Columns(e.ColumnIndex).Name = "colItemFee" OrElse dgvRequestItems.Columns(e.ColumnIndex).Name = "colItemSubtotal") AndAlso e.Value IsNot Nothing Then
+                Dim val As Decimal
+                If Decimal.TryParse(e.Value.ToString(), val) Then
+                    e.Value = val.ToString("N2")
+                    e.FormattingApplied = True
+                End If
+            End If
+        End Sub
     End Class
 End Namespace

@@ -52,14 +52,19 @@ Namespace RegistrarDocumentRequestSystem
             'lblStudentID
             '
             Me.lblStudentID.AutoSize = True
+            Me.lblStudentID.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblStudentID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblStudentID.Location = New System.Drawing.Point(24, 25)
             Me.lblStudentID.Name = "lblStudentID"
-            Me.lblStudentID.Size = New System.Drawing.Size(68, 17)
+            Me.lblStudentID.Size = New System.Drawing.Size(73, 17)
             Me.lblStudentID.TabIndex = 0
             Me.lblStudentID.Text = "Student ID"
             '
             'txtStudentID
             '
+            Me.txtStudentID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.txtStudentID.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.txtStudentID.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.txtStudentID.Location = New System.Drawing.Point(175, 16)
             Me.txtStudentID.MaxLength = 7
             Me.txtStudentID.Name = "txtStudentID"
@@ -77,14 +82,19 @@ Namespace RegistrarDocumentRequestSystem
             'lblLRN
             '
             Me.lblLRN.AutoSize = True
+            Me.lblLRN.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblLRN.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblLRN.Location = New System.Drawing.Point(24, 83)
             Me.lblLRN.Name = "lblLRN"
-            Me.lblLRN.Size = New System.Drawing.Size(32, 17)
+            Me.lblLRN.Size = New System.Drawing.Size(34, 17)
             Me.lblLRN.TabIndex = 3
             Me.lblLRN.Text = "LRN"
             '
             'txtLRN
             '
+            Me.txtLRN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.txtLRN.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.txtLRN.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.txtLRN.Location = New System.Drawing.Point(175, 74)
             Me.txtLRN.MaxLength = 12
             Me.txtLRN.Name = "txtLRN"
@@ -102,14 +112,19 @@ Namespace RegistrarDocumentRequestSystem
             'lblLastName
             '
             Me.lblLastName.AutoSize = True
+            Me.lblLastName.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblLastName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblLastName.Location = New System.Drawing.Point(24, 141)
             Me.lblLastName.Name = "lblLastName"
-            Me.lblLastName.Size = New System.Drawing.Size(70, 17)
+            Me.lblLastName.Size = New System.Drawing.Size(73, 17)
             Me.lblLastName.TabIndex = 6
             Me.lblLastName.Text = "Last Name"
             '
             'txtLastName
             '
+            Me.txtLastName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.txtLastName.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.txtLastName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.txtLastName.Location = New System.Drawing.Point(175, 132)
             Me.txtLastName.Name = "txtLastName"
             Me.txtLastName.Size = New System.Drawing.Size(310, 25)
@@ -126,14 +141,19 @@ Namespace RegistrarDocumentRequestSystem
             'lblFirstName
             '
             Me.lblFirstName.AutoSize = True
+            Me.lblFirstName.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblFirstName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblFirstName.Location = New System.Drawing.Point(24, 199)
             Me.lblFirstName.Name = "lblFirstName"
-            Me.lblFirstName.Size = New System.Drawing.Size(71, 17)
+            Me.lblFirstName.Size = New System.Drawing.Size(75, 17)
             Me.lblFirstName.TabIndex = 9
             Me.lblFirstName.Text = "First Name"
             '
             'txtFirstName
             '
+            Me.txtFirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.txtFirstName.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.txtFirstName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.txtFirstName.Location = New System.Drawing.Point(175, 190)
             Me.txtFirstName.Name = "txtFirstName"
             Me.txtFirstName.Size = New System.Drawing.Size(310, 25)
@@ -150,14 +170,19 @@ Namespace RegistrarDocumentRequestSystem
             'lblMiddleName
             '
             Me.lblMiddleName.AutoSize = True
+            Me.lblMiddleName.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblMiddleName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblMiddleName.Location = New System.Drawing.Point(24, 257)
             Me.lblMiddleName.Name = "lblMiddleName"
-            Me.lblMiddleName.Size = New System.Drawing.Size(88, 17)
+            Me.lblMiddleName.Size = New System.Drawing.Size(91, 17)
             Me.lblMiddleName.TabIndex = 12
             Me.lblMiddleName.Text = "Middle Name"
             '
             'txtMiddleName
             '
+            Me.txtMiddleName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.txtMiddleName.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.txtMiddleName.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.txtMiddleName.Location = New System.Drawing.Point(175, 248)
             Me.txtMiddleName.Name = "txtMiddleName"
             Me.txtMiddleName.Size = New System.Drawing.Size(310, 25)
@@ -174,15 +199,20 @@ Namespace RegistrarDocumentRequestSystem
             'lblCourse
             '
             Me.lblCourse.AutoSize = True
+            Me.lblCourse.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblCourse.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblCourse.Location = New System.Drawing.Point(24, 315)
             Me.lblCourse.Name = "lblCourse"
-            Me.lblCourse.Size = New System.Drawing.Size(49, 17)
+            Me.lblCourse.Size = New System.Drawing.Size(51, 17)
             Me.lblCourse.TabIndex = 15
             Me.lblCourse.Text = "Course"
             '
             'cboCourse
             '
             Me.cboCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+            Me.cboCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.cboCourse.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.cboCourse.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.cboCourse.FormattingEnabled = True
             Me.cboCourse.Items.AddRange(New Object() {"BS Information Technology", "BS Business Administration", "BS Education", "BS Accountancy"})
             Me.cboCourse.Location = New System.Drawing.Point(175, 306)
@@ -201,15 +231,20 @@ Namespace RegistrarDocumentRequestSystem
             'lblYearLevel
             '
             Me.lblYearLevel.AutoSize = True
+            Me.lblYearLevel.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblYearLevel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblYearLevel.Location = New System.Drawing.Point(24, 373)
             Me.lblYearLevel.Name = "lblYearLevel"
-            Me.lblYearLevel.Size = New System.Drawing.Size(65, 17)
+            Me.lblYearLevel.Size = New System.Drawing.Size(69, 17)
             Me.lblYearLevel.TabIndex = 18
             Me.lblYearLevel.Text = "Year Level"
             '
             'cboYearLevel
             '
             Me.cboYearLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+            Me.cboYearLevel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.cboYearLevel.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.cboYearLevel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.cboYearLevel.FormattingEnabled = True
             Me.cboYearLevel.Items.AddRange(New Object() {"1", "2", "3", "4"})
             Me.cboYearLevel.Location = New System.Drawing.Point(175, 364)
@@ -228,15 +263,20 @@ Namespace RegistrarDocumentRequestSystem
             'lblSection
             '
             Me.lblSection.AutoSize = True
+            Me.lblSection.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblSection.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblSection.Location = New System.Drawing.Point(24, 431)
             Me.lblSection.Name = "lblSection"
-            Me.lblSection.Size = New System.Drawing.Size(50, 17)
+            Me.lblSection.Size = New System.Drawing.Size(53, 17)
             Me.lblSection.TabIndex = 21
             Me.lblSection.Text = "Section"
             '
             'cboSection
             '
             Me.cboSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+            Me.cboSection.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.cboSection.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.cboSection.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.cboSection.FormattingEnabled = True
             Me.cboSection.Location = New System.Drawing.Point(175, 422)
             Me.cboSection.Name = "cboSection"
@@ -254,14 +294,19 @@ Namespace RegistrarDocumentRequestSystem
             'lblContactNo
             '
             Me.lblContactNo.AutoSize = True
+            Me.lblContactNo.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblContactNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblContactNo.Location = New System.Drawing.Point(24, 489)
             Me.lblContactNo.Name = "lblContactNo"
-            Me.lblContactNo.Size = New System.Drawing.Size(104, 17)
+            Me.lblContactNo.Size = New System.Drawing.Size(109, 17)
             Me.lblContactNo.TabIndex = 24
             Me.lblContactNo.Text = "Contact Number"
             '
             'txtContactNo
             '
+            Me.txtContactNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.txtContactNo.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.txtContactNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.txtContactNo.Location = New System.Drawing.Point(175, 480)
             Me.txtContactNo.MaxLength = 11
             Me.txtContactNo.Name = "txtContactNo"
@@ -340,6 +385,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.Controls.Add(Me.lblStudentIDError)
             Me.Controls.Add(Me.txtStudentID)
             Me.Controls.Add(Me.lblStudentID)
+            Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(251, Byte), Integer))
             Me.Font = New System.Drawing.Font("Segoe UI", 9.5!)
             Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
             Me.MaximizeBox = False

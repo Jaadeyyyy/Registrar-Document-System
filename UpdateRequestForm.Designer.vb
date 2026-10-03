@@ -34,51 +34,69 @@ Namespace RegistrarDocumentRequestSystem
             'lblPayment
             '
             Me.lblPayment.AutoSize = True
+            Me.lblPayment.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblPayment.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblPayment.Location = New System.Drawing.Point(24, 38)
             Me.lblPayment.Name = "lblPayment"
-            Me.lblPayment.Size = New System.Drawing.Size(96, 17)
+            Me.lblPayment.Size = New System.Drawing.Size(103, 17)
             Me.lblPayment.TabIndex = 0
             Me.lblPayment.Text = "Payment Status"
             '
             'cboPayment
             '
             Me.cboPayment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+            Me.cboPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.cboPayment.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.cboPayment.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.cboPayment.FormattingEnabled = True
             Me.cboPayment.Items.AddRange(New Object() {"Unpaid", "Paid"})
             Me.cboPayment.Location = New System.Drawing.Point(175, 35)
             Me.cboPayment.Name = "cboPayment"
             Me.cboPayment.Size = New System.Drawing.Size(250, 25)
             Me.cboPayment.TabIndex = 1
+            Me.cboPayment.Text = "Unpaid"
             '
             'lblStatus
             '
             Me.lblStatus.AutoSize = True
+            Me.lblStatus.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblStatus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblStatus.Location = New System.Drawing.Point(24, 88)
             Me.lblStatus.Name = "lblStatus"
-            Me.lblStatus.Size = New System.Drawing.Size(91, 17)
+            Me.lblStatus.Size = New System.Drawing.Size(98, 17)
             Me.lblStatus.TabIndex = 2
             Me.lblStatus.Text = "Request Status"
             '
             'cboStatus
             '
             Me.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+            Me.cboStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.cboStatus.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.cboStatus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.cboStatus.FormattingEnabled = True
+            Me.cboStatus.Items.AddRange(New Object() {"Pending", "Processing", "Ready for Release", "Released", "Cancelled"})
             Me.cboStatus.Location = New System.Drawing.Point(175, 85)
             Me.cboStatus.Name = "cboStatus"
             Me.cboStatus.Size = New System.Drawing.Size(250, 25)
             Me.cboStatus.TabIndex = 3
+            Me.cboStatus.Text = "Pending"
             '
             'lblORNo
             '
             Me.lblORNo.AutoSize = True
+            Me.lblORNo.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblORNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblORNo.Location = New System.Drawing.Point(24, 138)
             Me.lblORNo.Name = "lblORNo"
-            Me.lblORNo.Size = New System.Drawing.Size(76, 17)
+            Me.lblORNo.Size = New System.Drawing.Size(81, 17)
             Me.lblORNo.TabIndex = 4
             Me.lblORNo.Text = "OR Number"
             '
             'txtORNo
             '
+            Me.txtORNo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.txtORNo.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+            Me.txtORNo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.txtORNo.Location = New System.Drawing.Point(175, 135)
             Me.txtORNo.Name = "txtORNo"
             Me.txtORNo.Size = New System.Drawing.Size(250, 25)
@@ -87,14 +105,17 @@ Namespace RegistrarDocumentRequestSystem
             'lblORDate
             '
             Me.lblORDate.AutoSize = True
+            Me.lblORDate.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.lblORDate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblORDate.Location = New System.Drawing.Point(24, 188)
             Me.lblORDate.Name = "lblORDate"
-            Me.lblORDate.Size = New System.Drawing.Size(56, 17)
+            Me.lblORDate.Size = New System.Drawing.Size(59, 17)
             Me.lblORDate.TabIndex = 6
             Me.lblORDate.Text = "OR Date"
             '
             'dtpORDate
             '
+            Me.dtpORDate.Font = New System.Drawing.Font("Segoe UI", 10.0!)
             Me.dtpORDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
             Me.dtpORDate.Location = New System.Drawing.Point(175, 185)
             Me.dtpORDate.Name = "dtpORDate"
@@ -116,6 +137,8 @@ Namespace RegistrarDocumentRequestSystem
             '
             Me.btnSave.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
             Me.btnSave.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnSave.FlatAppearance.BorderSize = 1
             Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.btnSave.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
             Me.btnSave.ForeColor = System.Drawing.Color.White
@@ -131,6 +154,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.btnCancel.BackColor = System.Drawing.Color.White
             Me.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand
             Me.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnCancel.FlatAppearance.BorderSize = 1
             Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
             Me.btnCancel.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
             Me.btnCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
