@@ -1,0 +1,92 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace></RootNamespace>
+    <StartupObject>RegistrarDocumentRequestSystem.Program</StartupObject>
+    <OptionStrict>On</OptionStrict>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="LoginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="LoginForm.Designer.vb">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Update="MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Update="ReceiptForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ReceiptForm.Designer.vb">
+      <DependentUpon>ReceiptForm.vb</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Update="DocumentEditForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DocumentEditForm.Designer.vb">
+      <DependentUpon>DocumentEditForm.vb</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Update="RequestDetailsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RequestDetailsForm.Designer.vb">
+      <DependentUpon>RequestDetailsForm.vb</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Update="StudentEditForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StudentEditForm.Designer.vb">
+      <DependentUpon>StudentEditForm.vb</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Update="UpdateRequestForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UpdateRequestForm.Designer.vb">
+      <DependentUpon>UpdateRequestForm.vb</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+
+    <Compile Update="UserEditForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UserEditForm.Designer.vb">
+      <DependentUpon>UserEditForm.vb</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
