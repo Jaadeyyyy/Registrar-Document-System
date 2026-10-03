@@ -94,9 +94,12 @@ Namespace RegistrarDocumentRequestSystem
             builder.AppendLine()
             builder.AppendLine("Processed by: " & ValueText(row("CreatedByName")))
             builder.AppendLine("Signature:    ______________________________")
-            builder.AppendLine()
             builder.AppendLine(CenterText("This slip is NOT an official receipt.", 49))
-            builder.AppendLine(CenterText("Please present it to the cashier for payment.", 49))
+            If String.Equals(ValueText(row("PaymentStatus")), "Paid", StringComparison.OrdinalIgnoreCase) Then
+                builder.AppendLine(CenterText("Payment has been recorded.", 49))
+            Else
+                builder.AppendLine(CenterText("Please present it to the cashier for payment.", 49))
+            End If
             Return builder.ToString()
         End Function
 

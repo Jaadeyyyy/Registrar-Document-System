@@ -36,16 +36,15 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblPayment.AutoSize = True
             Me.lblPayment.Location = New System.Drawing.Point(24, 38)
             Me.lblPayment.Name = "lblPayment"
-            Me.lblPayment.Size = New System.Drawing.Size(149, 17)
+            Me.lblPayment.Size = New System.Drawing.Size(96, 17)
             Me.lblPayment.TabIndex = 0
-            Me.lblPayment.Text = "Payment Status (on save)"
+            Me.lblPayment.Text = "Payment Status"
             '
             'cboPayment
             '
             Me.cboPayment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-            Me.cboPayment.Enabled = False
             Me.cboPayment.FormattingEnabled = True
-            Me.cboPayment.Items.AddRange(New Object() {"Paid"})
+            Me.cboPayment.Items.AddRange(New Object() {"Unpaid", "Paid"})
             Me.cboPayment.Location = New System.Drawing.Point(175, 35)
             Me.cboPayment.Name = "cboPayment"
             Me.cboPayment.Size = New System.Drawing.Size(250, 25)
@@ -110,8 +109,8 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblRule.Name = "lblRule"
             Me.lblRule.Size = New System.Drawing.Size(410, 40)
             Me.lblRule.TabIndex = 8
-            Me.lblRule.Text = "Saving this form records the payment as Paid. Enter the official receipt number a" &
-    "nd date."
+            Me.lblRule.Text = "Enter official receipt details when recording payment as Paid. Requests must be " &
+    "paid before release."
             '
             'btnSave
             '

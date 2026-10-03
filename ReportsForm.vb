@@ -30,13 +30,19 @@ Namespace RegistrarDocumentRequestSystem
                 Return
             End If
             Dim filter As String = String.Empty
+            Dim dateColumn As String = "r.RequestDate"
             Select Case cboReportType.Text
                 Case "Pending Requests"
                     filter = " AND r.Status='Pending'"
+                    dateColumn = "r.RequestDate"
                 Case "Released Requests"
-                    filter = " AND r.Status='Released'"
+                    filter = " AND r.Status='Released' AND r.ReleasedDate IS NOT NULL"
+                    dateColumn = "r.ReleasedDate"
                 Case "Payments Collected"
-                    filter = " AND r.PaymentStatus='Paid'"
+                    filter = " AND r.PaymentStatus='Paid' AND r.ORDate IS NOT NULL"
+                    dateColumn = "r.ORDate"
+                Case Else
+                    dateColumn = "r.RequestDate"
             End Select
             Dim parameters = New Dictionary(Of String, Object) From {
                 {"@fromDate", dtpFromDate.Value.Date}, {"@toDate", dtpToDate.Value.Date}
@@ -47,11 +53,11 @@ Namespace RegistrarDocumentRequestSystem
                     "CONCAT(s.LastName, ', ', s.FirstName) AS Student, r.TotalAmount, " &
                     "r.PaymentStatus, r.ORNo, r.Status " &
                     "FROM tblrequest r INNER JOIN tblstudents s ON s.StudentID=r.StudentID " &
-                    "WHERE r.RequestDate BETWEEN @fromDate AND @toDate" & filter &
-                    " ORDER BY r.RequestDate DESC, r.RequestID DESC", parameters)
+                    "WHERE " & dateColumn & " BETWEEN @fromDate AND @toDate" & filter &
+                    " ORDER BY " & dateColumn & " DESC, r.RequestID DESC", parameters)
                 Dim totalObject = Database.Scalar(
                     "SELECT COALESCE(SUM(r.TotalAmount),0) FROM tblrequest r " &
-                    "WHERE r.RequestDate BETWEEN @fromDate AND @toDate" & filter, parameters)
+                    "WHERE " & dateColumn & " BETWEEN @fromDate AND @toDate" & filter, parameters)
                 lblReportTotal.Text = If(cboReportType.Text = "Payments Collected", "Collected: ", "Report Total: ") &
                                       Convert.ToDecimal(totalObject).ToString("N2")
                 If dgvReports.Columns.Contains("TotalAmount") Then dgvReports.Columns("TotalAmount").DefaultCellStyle.Format = "N2"

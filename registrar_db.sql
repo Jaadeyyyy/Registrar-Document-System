@@ -35,6 +35,7 @@ CREATE TABLE tblstudents (
   Section VARCHAR(20),
   ContactNo VARCHAR(20),
   Status ENUM('Active','Inactive') NOT NULL DEFAULT 'Active',
+  UNIQUE KEY uq_student_lrn (LRN),
   INDEX idx_student_name (LastName, FirstName),
   INDEX idx_student_status (Status)
 );
@@ -71,6 +72,7 @@ CREATE TABLE tblrequest (
   CONSTRAINT fk_request_student FOREIGN KEY (StudentID) REFERENCES tblstudents(StudentID),
   CONSTRAINT fk_request_user FOREIGN KEY (CreatedBy) REFERENCES tblusers(UserID),
   CONSTRAINT chk_request_total CHECK (TotalAmount >= 0),
+  UNIQUE KEY uq_request_orno (ORNo),
   INDEX idx_request_date (RequestDate),
   INDEX idx_request_status (Status),
   INDEX idx_request_payment (PaymentStatus)

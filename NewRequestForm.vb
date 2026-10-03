@@ -273,6 +273,7 @@ Namespace RegistrarDocumentRequestSystem
                         Using receipt As New ReceiptForm(requestId)
                             receipt.ShowDialog(Me)
                         End Using
+                        LoadNewRequestInitialData()
                         If mainForm IsNot Nothing Then
                             mainForm.ShowRequests(requestNumber)
                         End If

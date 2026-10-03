@@ -144,6 +144,13 @@ Namespace RegistrarDocumentRequestSystem
                 }
                 If isEditing Then
                     parameters.Add("@originalId", originalStudentId)
+                    Dim lrnExists = Convert.ToInt32(Database.Scalar(
+                        "SELECT COUNT(*) FROM tblstudents WHERE LRN=@lrn AND StudentID<>@originalId", parameters)) > 0
+                    If lrnExists Then
+                        lblLRNError.Text = "This LRN is already assigned to another student."
+                        txtLRN.Focus()
+                        Return
+                    End If
                     Database.Execute(
                         "UPDATE tblstudents SET LRN=@lrn, LastName=@lastName, FirstName=@firstName, " &
                         "MiddleName=@middleName, Course=@course, YearLevel=@yearLevel, " &
@@ -153,6 +160,14 @@ Namespace RegistrarDocumentRequestSystem
                         "SELECT COUNT(*) FROM tblstudents WHERE StudentID=@studentId", parameters)) > 0
                     If exists Then
                         lblStudentIDError.Text = "That Student ID already exists."
+                        txtStudentID.Focus()
+                        Return
+                    End If
+                    Dim lrnExists = Convert.ToInt32(Database.Scalar(
+                        "SELECT COUNT(*) FROM tblstudents WHERE LRN=@lrn", parameters)) > 0
+                    If lrnExists Then
+                        lblLRNError.Text = "This LRN is already assigned to another student."
+                        txtLRN.Focus()
                         Return
                     End If
                     Database.Execute(
@@ -164,7 +179,15 @@ Namespace RegistrarDocumentRequestSystem
                 DialogResult = DialogResult.OK
                 Close()
             Catch ex As Exception
-                MessageBox.Show(ex.Message, "Could not save student", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                If ex.Message.Contains("uq_student_lrn") OrElse (ex.Message.ToLowerInvariant().Contains("duplicate") AndAlso ex.Message.ToLowerInvariant().Contains("lrn")) Then
+                    lblLRNError.Text = "This LRN is already assigned to another student."
+                    MessageBox.Show("This LRN is already assigned to another student.", "Duplicate LRN", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                ElseIf ex.Message.Contains("PRIMARY") OrElse (ex.Message.ToLowerInvariant().Contains("duplicate") AndAlso ex.Message.ToLowerInvariant().Contains("primary")) Then
+                    lblStudentIDError.Text = "That Student ID already exists."
+                    MessageBox.Show("That Student ID already exists.", "Duplicate Student ID", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Else
+                    MessageBox.Show("Could not save student: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
             End Try
         End Sub
 
