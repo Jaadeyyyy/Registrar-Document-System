@@ -14,3 +14,5 @@
 # Build files
 *.bin
 *.targets
+*.tmp
+*.Backup.tmp

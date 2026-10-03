@@ -13,6 +13,7 @@ Namespace RegistrarDocumentRequestSystem
         ' View states
         Private ReadOnly requestItems As New DataTable()
         Private selectedStudentId As String = String.Empty
+        Private isSelectingStudent As Boolean = False
         Private studentsActiveOnlyFilter As Boolean = False
         Private activeDashboardFilter As String = String.Empty
 
@@ -56,7 +57,8 @@ Namespace RegistrarDocumentRequestSystem
             AppTheme.StyleGrid(dgvRecentSlips)
 
             ' New Request panel
-            AppTheme.StyleComboBox(cboStudent)
+            AppTheme.StyleTextBox(txtSearchStudent)
+            AppTheme.SetPlaceholder(txtSearchStudent, "Search student ID, LRN, or name")
             AppTheme.StyleTextBox(txtPurpose)
             AppTheme.SetPlaceholder(txtPurpose, "Purpose (example: Scholarship or school requirement)")
             AppTheme.StyleComboBox(cboDocument)
@@ -408,20 +410,16 @@ Namespace RegistrarDocumentRequestSystem
 
         Public Sub LoadNewRequestInitialData()
             Try
+                isSelectingStudent = True
                 selectedStudentId = String.Empty
+                txtSearchStudent.Text = String.Empty
+                isSelectingStudent = False
+                lstStudentResults.Visible = False
                 lblStudentInfo.Text = String.Empty
+                lblStudentError.Text = String.Empty
                 txtPurpose.Text = String.Empty
                 PrepareRequestItems()
                 UpdateTotal()
-
-                Dim studentTable = Database.GetTable(
-                    "SELECT StudentID, CONCAT(LastName, ', ', FirstName, ' (', StudentID, ')') AS DisplayText, " &
-                    "Course, YearLevel, Section FROM tblstudents WHERE Status='Active' ORDER BY LastName, FirstName")
-                cboStudent.DataSource = studentTable
-                cboStudent.DisplayMember = "DisplayText"
-                cboStudent.ValueMember = "StudentID"
-                cboStudent.SelectedIndex = -1
-                cboStudent.Text = String.Empty
 
                 cboDocument.DataSource = Database.GetTable(
                     "SELECT DocumentID, DocumentName, Fee FROM tbldocuments WHERE Status='Active' ORDER BY DocumentName")
@@ -432,24 +430,105 @@ Namespace RegistrarDocumentRequestSystem
             End Try
         End Sub
 
-        Private Sub cboStudent_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboStudent.SelectedIndexChanged
-            If cboStudent.SelectedItem IsNot Nothing AndAlso TypeOf cboStudent.SelectedItem Is DataRowView Then
-                Dim selected = DirectCast(cboStudent.SelectedItem, DataRowView)
-                selectedStudentId = selected("StudentID").ToString()
-                lblStudentInfo.Text = selected("Course").ToString() & " • Year " &
-                                     selected("YearLevel").ToString() & " • " &
-                                     selected("Section").ToString()
+        Private Sub txtSearchStudent_TextChanged(sender As Object, e As EventArgs) Handles txtSearchStudent.TextChanged
+            If isSelectingStudent Then Return
+
+            selectedStudentId = String.Empty
+            lblStudentInfo.Text = String.Empty
+            lblStudentError.Text = String.Empty
+
+            Dim query = txtSearchStudent.Text.Trim()
+            If query.Length < 1 Then
+                lstStudentResults.Visible = False
+                Return
+            End If
+
+            Try
+                Dim dt = Database.GetTable(
+                    "SELECT StudentID, " &
+                    "CONCAT(LastName, ', ', FirstName, ' (', StudentID, ') - ', Course, ' ', YearLevel, Section) AS DisplayText, " &
+                    "CONCAT(LastName, ', ', FirstName, ' (', StudentID, ')') AS ShortDisplay, " &
+                    "Course, YearLevel, Section " &
+                    "FROM tblstudents " &
+                    "WHERE Status='Active' AND (" &
+                    "StudentID LIKE @q OR LRN LIKE @q OR LastName LIKE @q OR FirstName LIKE @q OR " &
+                    "CONCAT(FirstName, ' ', LastName) LIKE @q OR CONCAT(LastName, ' ', FirstName) LIKE @q) " &
+                    "ORDER BY LastName, FirstName LIMIT 15",
+                    New Dictionary(Of String, Object) From {{"@q", "%" & query & "%"}})
+
+                If dt.Rows.Count > 0 Then
+                    lstStudentResults.DataSource = dt
+                    lstStudentResults.DisplayMember = "DisplayText"
+                    lstStudentResults.ValueMember = "StudentID"
+                    lstStudentResults.Visible = True
+                    lstStudentResults.BringToFront()
+                Else
+                    lstStudentResults.DataSource = Nothing
+                    lstStudentResults.Visible = False
+                    lblStudentInfo.Text = "No active student found."
+                    lblStudentInfo.ForeColor = AppTheme.DangerColor
+                End If
+            Catch ex As Exception
+                lstStudentResults.Visible = False
+            End Try
+        End Sub
+
+        Private Sub SelectStudentFromList()
+            If lstStudentResults.SelectedItem IsNot Nothing AndAlso TypeOf lstStudentResults.SelectedItem Is DataRowView Then
+                Dim row = DirectCast(lstStudentResults.SelectedItem, DataRowView)
+                selectedStudentId = row("StudentID").ToString()
+                lblStudentInfo.Text = row("Course").ToString() & " • Year " &
+                                     row("YearLevel").ToString() & " • " &
+                                     row("Section").ToString()
                 lblStudentInfo.ForeColor = AppTheme.AccentColor
                 lblStudentError.Text = String.Empty
+
+                isSelectingStudent = True
+                txtSearchStudent.Text = row("ShortDisplay").ToString()
+                isSelectingStudent = False
+
+                lstStudentResults.Visible = False
+                txtPurpose.Focus()
             End If
         End Sub
 
-        Private Sub cboStudent_TextUpdate(sender As Object, e As EventArgs) Handles cboStudent.TextUpdate
-            If cboStudent.SelectedIndex < 0 Then
-                selectedStudentId = String.Empty
-                lblStudentInfo.Text = "Choose a name from the suggestions."
-                lblStudentInfo.ForeColor = AppTheme.MutedTextColor
+        Private Sub lstStudentResults_Click(sender As Object, e As EventArgs) Handles lstStudentResults.Click
+            SelectStudentFromList()
+        End Sub
+
+        Private Sub lstStudentResults_KeyDown(sender As Object, e As KeyEventArgs) Handles lstStudentResults.KeyDown
+            If e.KeyCode = Keys.Enter Then
+                SelectStudentFromList()
+                e.Handled = True
+                e.SuppressKeyPress = True
+            ElseIf e.KeyCode = Keys.Escape Then
+                lstStudentResults.Visible = False
+                txtSearchStudent.Focus()
+                e.Handled = True
             End If
+        End Sub
+
+        Private Sub txtSearchStudent_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSearchStudent.KeyDown
+            If e.KeyCode = Keys.Down AndAlso lstStudentResults.Visible AndAlso lstStudentResults.Items.Count > 0 Then
+                lstStudentResults.Focus()
+                lstStudentResults.SelectedIndex = 0
+                e.Handled = True
+            ElseIf e.KeyCode = Keys.Enter Then
+                If lstStudentResults.Visible AndAlso lstStudentResults.Items.Count > 0 Then
+                    lstStudentResults.SelectedIndex = 0
+                    SelectStudentFromList()
+                End If
+                e.Handled = True
+                e.SuppressKeyPress = True
+            ElseIf e.KeyCode = Keys.Escape Then
+                lstStudentResults.Visible = False
+                e.Handled = True
+            End If
+        End Sub
+
+        Private Sub Controls_HideSuggestions(sender As Object, e As EventArgs) Handles _
+            txtPurpose.GotFocus, cboDocument.GotFocus, nudQuantity.GotFocus, btnAddItem.GotFocus, dgvRequestItems.GotFocus
+            lstStudentResults.Visible = False
         End Sub
 
         Private Sub txtPurpose_TextChanged(sender As Object, e As EventArgs) Handles txtPurpose.TextChanged
@@ -497,7 +576,7 @@ Namespace RegistrarDocumentRequestSystem
             lblItemError.Text = String.Empty
             Dim valid = True
             If String.IsNullOrWhiteSpace(selectedStudentId) Then
-                lblStudentError.Text = "Select an active student from the dropdown."
+                lblStudentError.Text = "Please search and select an active student."
                 valid = False
             End If
             If String.IsNullOrWhiteSpace(txtPurpose.Text) Then

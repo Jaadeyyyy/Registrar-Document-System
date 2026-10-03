@@ -19,8 +19,8 @@ Namespace RegistrarDocumentRequestSystem
         <System.Diagnostics.DebuggerStepThrough()>
         Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
-            Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-            Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+            Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+            Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
             Me.pnlSidebar = New System.Windows.Forms.Panel()
             Me.btnNavSignOut = New System.Windows.Forms.Button()
             Me.btnNavUsers = New System.Windows.Forms.Button()
@@ -36,107 +36,108 @@ Namespace RegistrarDocumentRequestSystem
             Me.pnlMainArea = New System.Windows.Forms.Panel()
             Me.pnlContent = New System.Windows.Forms.Panel()
             Me.pnlDashboard = New System.Windows.Forms.Panel()
-            Me.pnlActiveStudents = New System.Windows.Forms.Panel()
-            Me.lblActiveStudentsLabel = New System.Windows.Forms.Label()
-            Me.lblActiveStudentsValue = New System.Windows.Forms.Label()
-            Me.pnlAccent1 = New System.Windows.Forms.Panel()
-            Me.pnlInProgress = New System.Windows.Forms.Panel()
-            Me.lblInProgressLabel = New System.Windows.Forms.Label()
-            Me.lblInProgressValue = New System.Windows.Forms.Label()
-            Me.pnlAccent2 = New System.Windows.Forms.Panel()
-            Me.pnlReady = New System.Windows.Forms.Panel()
-            Me.lblReadyLabel = New System.Windows.Forms.Label()
-            Me.lblReadyValue = New System.Windows.Forms.Label()
-            Me.pnlAccent3 = New System.Windows.Forms.Panel()
-            Me.pnlUnpaid = New System.Windows.Forms.Panel()
-            Me.lblUnpaidLabel = New System.Windows.Forms.Label()
-            Me.lblUnpaidValue = New System.Windows.Forms.Label()
-            Me.pnlAccent4 = New System.Windows.Forms.Panel()
+            Me.dgvRecentRequests = New System.Windows.Forms.DataGridView()
+            Me.lblRecentTitle = New System.Windows.Forms.Label()
             Me.pnlBacklog = New System.Windows.Forms.Panel()
             Me.lblBacklogLabel = New System.Windows.Forms.Label()
             Me.lblBacklogValue = New System.Windows.Forms.Label()
             Me.pnlAccent5 = New System.Windows.Forms.Panel()
-            Me.lblRecentTitle = New System.Windows.Forms.Label()
-            Me.dgvRecentRequests = New System.Windows.Forms.DataGridView()
+            Me.pnlUnpaid = New System.Windows.Forms.Panel()
+            Me.lblUnpaidLabel = New System.Windows.Forms.Label()
+            Me.lblUnpaidValue = New System.Windows.Forms.Label()
+            Me.pnlAccent4 = New System.Windows.Forms.Panel()
+            Me.pnlReady = New System.Windows.Forms.Panel()
+            Me.lblReadyLabel = New System.Windows.Forms.Label()
+            Me.lblReadyValue = New System.Windows.Forms.Label()
+            Me.pnlAccent3 = New System.Windows.Forms.Panel()
+            Me.pnlInProgress = New System.Windows.Forms.Panel()
+            Me.lblInProgressLabel = New System.Windows.Forms.Label()
+            Me.lblInProgressValue = New System.Windows.Forms.Label()
+            Me.pnlAccent2 = New System.Windows.Forms.Panel()
+            Me.pnlActiveStudents = New System.Windows.Forms.Panel()
+            Me.lblActiveStudentsLabel = New System.Windows.Forms.Label()
+            Me.lblActiveStudentsValue = New System.Windows.Forms.Label()
+            Me.pnlAccent1 = New System.Windows.Forms.Panel()
             Me.pnlStudents = New System.Windows.Forms.Panel()
-            Me.txtSearchStudents = New System.Windows.Forms.TextBox()
-            Me.btnAddStudent = New System.Windows.Forms.Button()
-            Me.btnEditStudent = New System.Windows.Forms.Button()
-            Me.btnToggleStudentStatus = New System.Windows.Forms.Button()
             Me.dgvStudents = New System.Windows.Forms.DataGridView()
+            Me.btnToggleStudentStatus = New System.Windows.Forms.Button()
+            Me.btnEditStudent = New System.Windows.Forms.Button()
+            Me.btnAddStudent = New System.Windows.Forms.Button()
+            Me.txtSearchStudents = New System.Windows.Forms.TextBox()
             Me.pnlDocuments = New System.Windows.Forms.Panel()
-            Me.txtSearchDocuments = New System.Windows.Forms.TextBox()
-            Me.btnAddDocument = New System.Windows.Forms.Button()
-            Me.btnEditDocument = New System.Windows.Forms.Button()
-            Me.btnToggleDocumentStatus = New System.Windows.Forms.Button()
-            Me.dgvDocuments = New System.Windows.Forms.DataGridView()
-            Me.lblRecentSlips = New System.Windows.Forms.Label()
-            Me.btnViewSlipDocument = New System.Windows.Forms.Button()
             Me.dgvRecentSlips = New System.Windows.Forms.DataGridView()
+            Me.btnViewSlipDocument = New System.Windows.Forms.Button()
+            Me.lblRecentSlips = New System.Windows.Forms.Label()
+            Me.dgvDocuments = New System.Windows.Forms.DataGridView()
+            Me.btnToggleDocumentStatus = New System.Windows.Forms.Button()
+            Me.btnEditDocument = New System.Windows.Forms.Button()
+            Me.btnAddDocument = New System.Windows.Forms.Button()
+            Me.txtSearchDocuments = New System.Windows.Forms.TextBox()
             Me.pnlNewRequest = New System.Windows.Forms.Panel()
-            Me.cboStudent = New System.Windows.Forms.ComboBox()
-            Me.lblStudentInfo = New System.Windows.Forms.Label()
-            Me.lblStudentError = New System.Windows.Forms.Label()
-            Me.txtPurpose = New System.Windows.Forms.TextBox()
-            Me.lblPurposeError = New System.Windows.Forms.Label()
-            Me.cboDocument = New System.Windows.Forms.ComboBox()
-            Me.nudQuantity = New System.Windows.Forms.NumericUpDown()
-            Me.btnAddItem = New System.Windows.Forms.Button()
-            Me.btnRemoveItem = New System.Windows.Forms.Button()
-            Me.lblItemError = New System.Windows.Forms.Label()
+            Me.btnSaveRequest = New System.Windows.Forms.Button()
+            Me.lblTotalAmount = New System.Windows.Forms.Label()
             Me.dgvRequestItems = New System.Windows.Forms.DataGridView()
             Me.colDocument = New System.Windows.Forms.DataGridViewTextBoxColumn()
             Me.colFee = New System.Windows.Forms.DataGridViewTextBoxColumn()
             Me.colQuantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
             Me.colSubtotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
-            Me.lblTotalAmount = New System.Windows.Forms.Label()
-            Me.btnSaveRequest = New System.Windows.Forms.Button()
+            Me.lblItemError = New System.Windows.Forms.Label()
+            Me.btnRemoveItem = New System.Windows.Forms.Button()
+            Me.btnAddItem = New System.Windows.Forms.Button()
+            Me.nudQuantity = New System.Windows.Forms.NumericUpDown()
+            Me.cboDocument = New System.Windows.Forms.ComboBox()
+            Me.lblPurposeError = New System.Windows.Forms.Label()
+            Me.txtPurpose = New System.Windows.Forms.TextBox()
+            Me.lblStudentError = New System.Windows.Forms.Label()
+            Me.lblStudentInfo = New System.Windows.Forms.Label()
+            Me.txtSearchStudent = New System.Windows.Forms.TextBox()
+            Me.lstStudentResults = New System.Windows.Forms.ListBox()
             Me.pnlRequests = New System.Windows.Forms.Panel()
-            Me.txtSearchRequests = New System.Windows.Forms.TextBox()
-            Me.btnViewDetails = New System.Windows.Forms.Button()
-            Me.btnUpdateStatus = New System.Windows.Forms.Button()
-            Me.btnViewSlipRequest = New System.Windows.Forms.Button()
             Me.dgvRequests = New System.Windows.Forms.DataGridView()
+            Me.btnViewSlipRequest = New System.Windows.Forms.Button()
+            Me.btnUpdateStatus = New System.Windows.Forms.Button()
+            Me.btnViewDetails = New System.Windows.Forms.Button()
+            Me.txtSearchRequests = New System.Windows.Forms.TextBox()
             Me.pnlReports = New System.Windows.Forms.Panel()
-            Me.cboReportType = New System.Windows.Forms.ComboBox()
-            Me.dtpFromDate = New System.Windows.Forms.DateTimePicker()
-            Me.dtpToDate = New System.Windows.Forms.DateTimePicker()
-            Me.btnGenerateReport = New System.Windows.Forms.Button()
-            Me.lblReportTotal = New System.Windows.Forms.Label()
             Me.dgvReports = New System.Windows.Forms.DataGridView()
+            Me.lblReportTotal = New System.Windows.Forms.Label()
+            Me.btnGenerateReport = New System.Windows.Forms.Button()
+            Me.dtpToDate = New System.Windows.Forms.DateTimePicker()
+            Me.dtpFromDate = New System.Windows.Forms.DateTimePicker()
+            Me.cboReportType = New System.Windows.Forms.ComboBox()
             Me.pnlUsers = New System.Windows.Forms.Panel()
-            Me.txtSearchUsers = New System.Windows.Forms.TextBox()
-            Me.btnAddUser = New System.Windows.Forms.Button()
-            Me.btnEditUser = New System.Windows.Forms.Button()
-            Me.btnToggleUserStatus = New System.Windows.Forms.Button()
             Me.dgvUsers = New System.Windows.Forms.DataGridView()
+            Me.btnToggleUserStatus = New System.Windows.Forms.Button()
+            Me.btnEditUser = New System.Windows.Forms.Button()
+            Me.btnAddUser = New System.Windows.Forms.Button()
+            Me.txtSearchUsers = New System.Windows.Forms.TextBox()
             Me.pnlHeading = New System.Windows.Forms.Panel()
             Me.pnlPageMarker = New System.Windows.Forms.Panel()
             Me.lblPageSubtitle = New System.Windows.Forms.Label()
             Me.lblPageTitle = New System.Windows.Forms.Label()
-            Me.pnlTopBar = New System.Windows.Forms.Panel()
-            Me.lblAccount = New System.Windows.Forms.Label()
-            Me.pnlTopAccent = New System.Windows.Forms.Panel()
             Me.dashboardTimer = New System.Windows.Forms.Timer(Me.components)
+            Me.pnlTopAccent = New System.Windows.Forms.Panel()
+            Me.lblAccount = New System.Windows.Forms.Label()
+            Me.pnlTopBar = New System.Windows.Forms.Panel()
             Me.pnlSidebar.SuspendLayout()
             Me.pnlBrand.SuspendLayout()
             Me.pnlMainArea.SuspendLayout()
             Me.pnlContent.SuspendLayout()
             Me.pnlDashboard.SuspendLayout()
-            Me.pnlActiveStudents.SuspendLayout()
-            Me.pnlInProgress.SuspendLayout()
-            Me.pnlReady.SuspendLayout()
-            Me.pnlUnpaid.SuspendLayout()
-            Me.pnlBacklog.SuspendLayout()
             CType(Me.dgvRecentRequests, System.ComponentModel.ISupportInitialize).BeginInit()
+            Me.pnlBacklog.SuspendLayout()
+            Me.pnlUnpaid.SuspendLayout()
+            Me.pnlReady.SuspendLayout()
+            Me.pnlInProgress.SuspendLayout()
+            Me.pnlActiveStudents.SuspendLayout()
             Me.pnlStudents.SuspendLayout()
             CType(Me.dgvStudents, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.pnlDocuments.SuspendLayout()
-            CType(Me.dgvDocuments, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.dgvRecentSlips, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.dgvDocuments, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.pnlNewRequest.SuspendLayout()
-            CType(Me.nudQuantity, System.ComponentModel.ISupportInitialize).BeginInit()
             CType(Me.dgvRequestItems, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.nudQuantity, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.pnlRequests.SuspendLayout()
             CType(Me.dgvRequests, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.pnlReports.SuspendLayout()
@@ -320,7 +321,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblOffice.ForeColor = System.Drawing.Color.White
             Me.lblOffice.Location = New System.Drawing.Point(74, 22)
             Me.lblOffice.Name = "lblOffice"
-            Me.lblOffice.Size = New System.Drawing.Size(107, 38)
+            Me.lblOffice.Size = New System.Drawing.Size(184, 19)
             Me.lblOffice.TabIndex = 1
             Me.lblOffice.Text = "OFFICE OF THE REGISTRAR"
             '
@@ -351,10 +352,10 @@ Namespace RegistrarDocumentRequestSystem
             '
             Me.pnlContent.AutoScroll = True
             Me.pnlContent.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(251, Byte), Integer))
+            Me.pnlContent.Controls.Add(Me.pnlNewRequest)
             Me.pnlContent.Controls.Add(Me.pnlDashboard)
             Me.pnlContent.Controls.Add(Me.pnlStudents)
             Me.pnlContent.Controls.Add(Me.pnlDocuments)
-            Me.pnlContent.Controls.Add(Me.pnlNewRequest)
             Me.pnlContent.Controls.Add(Me.pnlRequests)
             Me.pnlContent.Controls.Add(Me.pnlReports)
             Me.pnlContent.Controls.Add(Me.pnlUsers)
@@ -380,181 +381,37 @@ Namespace RegistrarDocumentRequestSystem
             Me.pnlDashboard.Size = New System.Drawing.Size(894, 522)
             Me.pnlDashboard.TabIndex = 0
             '
-            'pnlActiveStudents
+            'dgvRecentRequests
             '
-            Me.pnlActiveStudents.BackColor = System.Drawing.Color.White
-            Me.pnlActiveStudents.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-            Me.pnlActiveStudents.Controls.Add(Me.lblActiveStudentsLabel)
-            Me.pnlActiveStudents.Controls.Add(Me.lblActiveStudentsValue)
-            Me.pnlActiveStudents.Controls.Add(Me.pnlAccent1)
-            Me.pnlActiveStudents.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.pnlActiveStudents.Location = New System.Drawing.Point(0, 5)
-            Me.pnlActiveStudents.Name = "pnlActiveStudents"
-            Me.pnlActiveStudents.Size = New System.Drawing.Size(205, 105)
-            Me.pnlActiveStudents.TabIndex = 0
+            Me.dgvRecentRequests.AllowUserToAddRows = False
+            Me.dgvRecentRequests.AllowUserToDeleteRows = False
+            Me.dgvRecentRequests.AllowUserToResizeRows = False
+            Me.dgvRecentRequests.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Me.dgvRecentRequests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+            Me.dgvRecentRequests.BackgroundColor = System.Drawing.Color.White
+            Me.dgvRecentRequests.ColumnHeadersHeight = 38
+            Me.dgvRecentRequests.GridColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(237, Byte), Integer))
+            Me.dgvRecentRequests.Location = New System.Drawing.Point(0, 174)
+            Me.dgvRecentRequests.MultiSelect = False
+            Me.dgvRecentRequests.Name = "dgvRecentRequests"
+            Me.dgvRecentRequests.ReadOnly = True
+            Me.dgvRecentRequests.RowHeadersVisible = False
+            Me.dgvRecentRequests.RowTemplate.Height = 34
+            Me.dgvRecentRequests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+            Me.dgvRecentRequests.Size = New System.Drawing.Size(1085, 330)
+            Me.dgvRecentRequests.TabIndex = 6
             '
-            'lblActiveStudentsLabel
+            'lblRecentTitle
             '
-            Me.lblActiveStudentsLabel.AutoSize = True
-            Me.lblActiveStudentsLabel.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-            Me.lblActiveStudentsLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(101, Byte), Integer), CType(CType(116, Byte), Integer), CType(CType(139, Byte), Integer))
-            Me.lblActiveStudentsLabel.Location = New System.Drawing.Point(19, 66)
-            Me.lblActiveStudentsLabel.Name = "lblActiveStudentsLabel"
-            Me.lblActiveStudentsLabel.Size = New System.Drawing.Size(96, 17)
-            Me.lblActiveStudentsLabel.TabIndex = 2
-            Me.lblActiveStudentsLabel.Text = "Active Students"
-            '
-            'lblActiveStudentsValue
-            '
-            Me.lblActiveStudentsValue.AutoSize = True
-            Me.lblActiveStudentsValue.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
-            Me.lblActiveStudentsValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.lblActiveStudentsValue.Location = New System.Drawing.Point(17, 14)
-            Me.lblActiveStudentsValue.Name = "lblActiveStudentsValue"
-            Me.lblActiveStudentsValue.Size = New System.Drawing.Size(38, 45)
-            Me.lblActiveStudentsValue.TabIndex = 1
-            Me.lblActiveStudentsValue.Text = "0"
-            '
-            'pnlAccent1
-            '
-            Me.pnlAccent1.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.pnlAccent1.Dock = System.Windows.Forms.DockStyle.Top
-            Me.pnlAccent1.Location = New System.Drawing.Point(0, 0)
-            Me.pnlAccent1.Name = "pnlAccent1"
-            Me.pnlAccent1.Size = New System.Drawing.Size(203, 4)
-            Me.pnlAccent1.TabIndex = 0
-            '
-            'pnlInProgress
-            '
-            Me.pnlInProgress.BackColor = System.Drawing.Color.White
-            Me.pnlInProgress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-            Me.pnlInProgress.Controls.Add(Me.lblInProgressLabel)
-            Me.pnlInProgress.Controls.Add(Me.lblInProgressValue)
-            Me.pnlInProgress.Controls.Add(Me.pnlAccent2)
-            Me.pnlInProgress.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.pnlInProgress.Location = New System.Drawing.Point(220, 5)
-            Me.pnlInProgress.Name = "pnlInProgress"
-            Me.pnlInProgress.Size = New System.Drawing.Size(205, 105)
-            Me.pnlInProgress.TabIndex = 1
-            '
-            'lblInProgressLabel
-            '
-            Me.lblInProgressLabel.AutoSize = True
-            Me.lblInProgressLabel.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-            Me.lblInProgressLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(101, Byte), Integer), CType(CType(116, Byte), Integer), CType(CType(139, Byte), Integer))
-            Me.lblInProgressLabel.Location = New System.Drawing.Point(19, 66)
-            Me.lblInProgressLabel.Name = "lblInProgressLabel"
-            Me.lblInProgressLabel.Size = New System.Drawing.Size(134, 17)
-            Me.lblInProgressLabel.TabIndex = 2
-            Me.lblInProgressLabel.Text = "Requests In Progress"
-            '
-            'lblInProgressValue
-            '
-            Me.lblInProgressValue.AutoSize = True
-            Me.lblInProgressValue.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
-            Me.lblInProgressValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(30, Byte), Integer))
-            Me.lblInProgressValue.Location = New System.Drawing.Point(17, 14)
-            Me.lblInProgressValue.Name = "lblInProgressValue"
-            Me.lblInProgressValue.Size = New System.Drawing.Size(38, 45)
-            Me.lblInProgressValue.TabIndex = 1
-            Me.lblInProgressValue.Text = "0"
-            '
-            'pnlAccent2
-            '
-            Me.pnlAccent2.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(30, Byte), Integer))
-            Me.pnlAccent2.Dock = System.Windows.Forms.DockStyle.Top
-            Me.pnlAccent2.Location = New System.Drawing.Point(0, 0)
-            Me.pnlAccent2.Name = "pnlAccent2"
-            Me.pnlAccent2.Size = New System.Drawing.Size(203, 4)
-            Me.pnlAccent2.TabIndex = 0
-            '
-            'pnlReady
-            '
-            Me.pnlReady.BackColor = System.Drawing.Color.White
-            Me.pnlReady.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-            Me.pnlReady.Controls.Add(Me.lblReadyLabel)
-            Me.pnlReady.Controls.Add(Me.lblReadyValue)
-            Me.pnlReady.Controls.Add(Me.pnlAccent3)
-            Me.pnlReady.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.pnlReady.Location = New System.Drawing.Point(440, 5)
-            Me.pnlReady.Name = "pnlReady"
-            Me.pnlReady.Size = New System.Drawing.Size(205, 105)
-            Me.pnlReady.TabIndex = 2
-            '
-            'lblReadyLabel
-            '
-            Me.lblReadyLabel.AutoSize = True
-            Me.lblReadyLabel.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-            Me.lblReadyLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(101, Byte), Integer), CType(CType(116, Byte), Integer), CType(CType(139, Byte), Integer))
-            Me.lblReadyLabel.Location = New System.Drawing.Point(19, 66)
-            Me.lblReadyLabel.Name = "lblReadyLabel"
-            Me.lblReadyLabel.Size = New System.Drawing.Size(115, 17)
-            Me.lblReadyLabel.TabIndex = 2
-            Me.lblReadyLabel.Text = "Ready for Release"
-            '
-            'lblReadyValue
-            '
-            Me.lblReadyValue.AutoSize = True
-            Me.lblReadyValue.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
-            Me.lblReadyValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(132, Byte), Integer), CType(CType(96, Byte), Integer))
-            Me.lblReadyValue.Location = New System.Drawing.Point(17, 14)
-            Me.lblReadyValue.Name = "lblReadyValue"
-            Me.lblReadyValue.Size = New System.Drawing.Size(38, 45)
-            Me.lblReadyValue.TabIndex = 1
-            Me.lblReadyValue.Text = "0"
-            '
-            'pnlAccent3
-            '
-            Me.pnlAccent3.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(132, Byte), Integer), CType(CType(96, Byte), Integer))
-            Me.pnlAccent3.Dock = System.Windows.Forms.DockStyle.Top
-            Me.pnlAccent3.Location = New System.Drawing.Point(0, 0)
-            Me.pnlAccent3.Name = "pnlAccent3"
-            Me.pnlAccent3.Size = New System.Drawing.Size(203, 4)
-            Me.pnlAccent3.TabIndex = 0
-            '
-            'pnlUnpaid
-            '
-            Me.pnlUnpaid.BackColor = System.Drawing.Color.White
-            Me.pnlUnpaid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-            Me.pnlUnpaid.Controls.Add(Me.lblUnpaidLabel)
-            Me.pnlUnpaid.Controls.Add(Me.lblUnpaidValue)
-            Me.pnlUnpaid.Controls.Add(Me.pnlAccent4)
-            Me.pnlUnpaid.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.pnlUnpaid.Location = New System.Drawing.Point(660, 5)
-            Me.pnlUnpaid.Name = "pnlUnpaid"
-            Me.pnlUnpaid.Size = New System.Drawing.Size(205, 105)
-            Me.pnlUnpaid.TabIndex = 3
-            '
-            'lblUnpaidLabel
-            '
-            Me.lblUnpaidLabel.AutoSize = True
-            Me.lblUnpaidLabel.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-            Me.lblUnpaidLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(101, Byte), Integer), CType(CType(116, Byte), Integer), CType(CType(139, Byte), Integer))
-            Me.lblUnpaidLabel.Location = New System.Drawing.Point(19, 66)
-            Me.lblUnpaidLabel.Name = "lblUnpaidLabel"
-            Me.lblUnpaidLabel.Size = New System.Drawing.Size(107, 17)
-            Me.lblUnpaidLabel.TabIndex = 2
-            Me.lblUnpaidLabel.Text = "Unpaid Requests"
-            '
-            'lblUnpaidValue
-            '
-            Me.lblUnpaidValue.AutoSize = True
-            Me.lblUnpaidValue.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
-            Me.lblUnpaidValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-            Me.lblUnpaidValue.Location = New System.Drawing.Point(17, 14)
-            Me.lblUnpaidValue.Name = "lblUnpaidValue"
-            Me.lblUnpaidValue.Size = New System.Drawing.Size(38, 45)
-            Me.lblUnpaidValue.TabIndex = 1
-            Me.lblUnpaidValue.Text = "0"
-            '
-            'pnlAccent4
-            '
-            Me.pnlAccent4.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-            Me.pnlAccent4.Dock = System.Windows.Forms.DockStyle.Top
-            Me.pnlAccent4.Location = New System.Drawing.Point(0, 0)
-            Me.pnlAccent4.Name = "pnlAccent4"
-            Me.pnlAccent4.Size = New System.Drawing.Size(203, 4)
-            Me.pnlAccent4.TabIndex = 0
+            Me.lblRecentTitle.AutoSize = True
+            Me.lblRecentTitle.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold)
+            Me.lblRecentTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
+            Me.lblRecentTitle.Location = New System.Drawing.Point(0, 138)
+            Me.lblRecentTitle.Name = "lblRecentTitle"
+            Me.lblRecentTitle.Size = New System.Drawing.Size(153, 25)
+            Me.lblRecentTitle.TabIndex = 5
+            Me.lblRecentTitle.Text = "Recent Requests"
             '
             'pnlBacklog
             '
@@ -600,38 +457,181 @@ Namespace RegistrarDocumentRequestSystem
             Me.pnlAccent5.Size = New System.Drawing.Size(203, 4)
             Me.pnlAccent5.TabIndex = 0
             '
-            'lblRecentTitle
+            'pnlUnpaid
             '
-            Me.lblRecentTitle.AutoSize = True
-            Me.lblRecentTitle.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold)
-            Me.lblRecentTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
-            Me.lblRecentTitle.Location = New System.Drawing.Point(0, 138)
-            Me.lblRecentTitle.Name = "lblRecentTitle"
-            Me.lblRecentTitle.Size = New System.Drawing.Size(149, 25)
-            Me.lblRecentTitle.TabIndex = 5
-            Me.lblRecentTitle.Text = "Recent Requests"
+            Me.pnlUnpaid.BackColor = System.Drawing.Color.White
+            Me.pnlUnpaid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.pnlUnpaid.Controls.Add(Me.lblUnpaidLabel)
+            Me.pnlUnpaid.Controls.Add(Me.lblUnpaidValue)
+            Me.pnlUnpaid.Controls.Add(Me.pnlAccent4)
+            Me.pnlUnpaid.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.pnlUnpaid.Location = New System.Drawing.Point(660, 5)
+            Me.pnlUnpaid.Name = "pnlUnpaid"
+            Me.pnlUnpaid.Size = New System.Drawing.Size(205, 105)
+            Me.pnlUnpaid.TabIndex = 3
             '
-            'dgvRecentRequests
+            'lblUnpaidLabel
             '
-            Me.dgvRecentRequests.AllowUserToAddRows = False
-            Me.dgvRecentRequests.AllowUserToDeleteRows = False
-            Me.dgvRecentRequests.AllowUserToResizeRows = False
-            Me.dgvRecentRequests.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-            Me.dgvRecentRequests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-            Me.dgvRecentRequests.BackgroundColor = System.Drawing.Color.White
-            Me.dgvRecentRequests.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-            Me.dgvRecentRequests.ColumnHeadersHeight = 38
-            Me.dgvRecentRequests.GridColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(237, Byte), Integer))
-            Me.dgvRecentRequests.Location = New System.Drawing.Point(0, 174)
-            Me.dgvRecentRequests.MultiSelect = False
-            Me.dgvRecentRequests.Name = "dgvRecentRequests"
-            Me.dgvRecentRequests.ReadOnly = True
-            Me.dgvRecentRequests.RowHeadersVisible = False
-            Me.dgvRecentRequests.RowTemplate.Height = 34
-            Me.dgvRecentRequests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-            Me.dgvRecentRequests.Size = New System.Drawing.Size(1085, 330)
-            Me.dgvRecentRequests.TabIndex = 6
+            Me.lblUnpaidLabel.AutoSize = True
+            Me.lblUnpaidLabel.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+            Me.lblUnpaidLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(101, Byte), Integer), CType(CType(116, Byte), Integer), CType(CType(139, Byte), Integer))
+            Me.lblUnpaidLabel.Location = New System.Drawing.Point(19, 66)
+            Me.lblUnpaidLabel.Name = "lblUnpaidLabel"
+            Me.lblUnpaidLabel.Size = New System.Drawing.Size(107, 17)
+            Me.lblUnpaidLabel.TabIndex = 2
+            Me.lblUnpaidLabel.Text = "Unpaid Requests"
+            '
+            'lblUnpaidValue
+            '
+            Me.lblUnpaidValue.AutoSize = True
+            Me.lblUnpaidValue.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
+            Me.lblUnpaidValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+            Me.lblUnpaidValue.Location = New System.Drawing.Point(17, 14)
+            Me.lblUnpaidValue.Name = "lblUnpaidValue"
+            Me.lblUnpaidValue.Size = New System.Drawing.Size(38, 45)
+            Me.lblUnpaidValue.TabIndex = 1
+            Me.lblUnpaidValue.Text = "0"
+            '
+            'pnlAccent4
+            '
+            Me.pnlAccent4.BackColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+            Me.pnlAccent4.Dock = System.Windows.Forms.DockStyle.Top
+            Me.pnlAccent4.Location = New System.Drawing.Point(0, 0)
+            Me.pnlAccent4.Name = "pnlAccent4"
+            Me.pnlAccent4.Size = New System.Drawing.Size(203, 4)
+            Me.pnlAccent4.TabIndex = 0
+            '
+            'pnlReady
+            '
+            Me.pnlReady.BackColor = System.Drawing.Color.White
+            Me.pnlReady.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.pnlReady.Controls.Add(Me.lblReadyLabel)
+            Me.pnlReady.Controls.Add(Me.lblReadyValue)
+            Me.pnlReady.Controls.Add(Me.pnlAccent3)
+            Me.pnlReady.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.pnlReady.Location = New System.Drawing.Point(440, 5)
+            Me.pnlReady.Name = "pnlReady"
+            Me.pnlReady.Size = New System.Drawing.Size(205, 105)
+            Me.pnlReady.TabIndex = 2
+            '
+            'lblReadyLabel
+            '
+            Me.lblReadyLabel.AutoSize = True
+            Me.lblReadyLabel.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+            Me.lblReadyLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(101, Byte), Integer), CType(CType(116, Byte), Integer), CType(CType(139, Byte), Integer))
+            Me.lblReadyLabel.Location = New System.Drawing.Point(19, 66)
+            Me.lblReadyLabel.Name = "lblReadyLabel"
+            Me.lblReadyLabel.Size = New System.Drawing.Size(114, 17)
+            Me.lblReadyLabel.TabIndex = 2
+            Me.lblReadyLabel.Text = "Ready for Release"
+            '
+            'lblReadyValue
+            '
+            Me.lblReadyValue.AutoSize = True
+            Me.lblReadyValue.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
+            Me.lblReadyValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(132, Byte), Integer), CType(CType(96, Byte), Integer))
+            Me.lblReadyValue.Location = New System.Drawing.Point(17, 14)
+            Me.lblReadyValue.Name = "lblReadyValue"
+            Me.lblReadyValue.Size = New System.Drawing.Size(38, 45)
+            Me.lblReadyValue.TabIndex = 1
+            Me.lblReadyValue.Text = "0"
+            '
+            'pnlAccent3
+            '
+            Me.pnlAccent3.BackColor = System.Drawing.Color.FromArgb(CType(CType(24, Byte), Integer), CType(CType(132, Byte), Integer), CType(CType(96, Byte), Integer))
+            Me.pnlAccent3.Dock = System.Windows.Forms.DockStyle.Top
+            Me.pnlAccent3.Location = New System.Drawing.Point(0, 0)
+            Me.pnlAccent3.Name = "pnlAccent3"
+            Me.pnlAccent3.Size = New System.Drawing.Size(203, 4)
+            Me.pnlAccent3.TabIndex = 0
+            '
+            'pnlInProgress
+            '
+            Me.pnlInProgress.BackColor = System.Drawing.Color.White
+            Me.pnlInProgress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.pnlInProgress.Controls.Add(Me.lblInProgressLabel)
+            Me.pnlInProgress.Controls.Add(Me.lblInProgressValue)
+            Me.pnlInProgress.Controls.Add(Me.pnlAccent2)
+            Me.pnlInProgress.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.pnlInProgress.Location = New System.Drawing.Point(220, 5)
+            Me.pnlInProgress.Name = "pnlInProgress"
+            Me.pnlInProgress.Size = New System.Drawing.Size(205, 105)
+            Me.pnlInProgress.TabIndex = 1
+            '
+            'lblInProgressLabel
+            '
+            Me.lblInProgressLabel.AutoSize = True
+            Me.lblInProgressLabel.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+            Me.lblInProgressLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(101, Byte), Integer), CType(CType(116, Byte), Integer), CType(CType(139, Byte), Integer))
+            Me.lblInProgressLabel.Location = New System.Drawing.Point(19, 66)
+            Me.lblInProgressLabel.Name = "lblInProgressLabel"
+            Me.lblInProgressLabel.Size = New System.Drawing.Size(131, 17)
+            Me.lblInProgressLabel.TabIndex = 2
+            Me.lblInProgressLabel.Text = "Requests In Progress"
+            '
+            'lblInProgressValue
+            '
+            Me.lblInProgressValue.AutoSize = True
+            Me.lblInProgressValue.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
+            Me.lblInProgressValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(30, Byte), Integer))
+            Me.lblInProgressValue.Location = New System.Drawing.Point(17, 14)
+            Me.lblInProgressValue.Name = "lblInProgressValue"
+            Me.lblInProgressValue.Size = New System.Drawing.Size(38, 45)
+            Me.lblInProgressValue.TabIndex = 1
+            Me.lblInProgressValue.Text = "0"
+            '
+            'pnlAccent2
+            '
+            Me.pnlAccent2.BackColor = System.Drawing.Color.FromArgb(CType(CType(194, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(30, Byte), Integer))
+            Me.pnlAccent2.Dock = System.Windows.Forms.DockStyle.Top
+            Me.pnlAccent2.Location = New System.Drawing.Point(0, 0)
+            Me.pnlAccent2.Name = "pnlAccent2"
+            Me.pnlAccent2.Size = New System.Drawing.Size(203, 4)
+            Me.pnlAccent2.TabIndex = 0
+            '
+            'pnlActiveStudents
+            '
+            Me.pnlActiveStudents.BackColor = System.Drawing.Color.White
+            Me.pnlActiveStudents.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.pnlActiveStudents.Controls.Add(Me.lblActiveStudentsLabel)
+            Me.pnlActiveStudents.Controls.Add(Me.lblActiveStudentsValue)
+            Me.pnlActiveStudents.Controls.Add(Me.pnlAccent1)
+            Me.pnlActiveStudents.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.pnlActiveStudents.Location = New System.Drawing.Point(0, 5)
+            Me.pnlActiveStudents.Name = "pnlActiveStudents"
+            Me.pnlActiveStudents.Size = New System.Drawing.Size(205, 105)
+            Me.pnlActiveStudents.TabIndex = 0
+            '
+            'lblActiveStudentsLabel
+            '
+            Me.lblActiveStudentsLabel.AutoSize = True
+            Me.lblActiveStudentsLabel.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+            Me.lblActiveStudentsLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(101, Byte), Integer), CType(CType(116, Byte), Integer), CType(CType(139, Byte), Integer))
+            Me.lblActiveStudentsLabel.Location = New System.Drawing.Point(19, 66)
+            Me.lblActiveStudentsLabel.Name = "lblActiveStudentsLabel"
+            Me.lblActiveStudentsLabel.Size = New System.Drawing.Size(96, 17)
+            Me.lblActiveStudentsLabel.TabIndex = 2
+            Me.lblActiveStudentsLabel.Text = "Active Students"
+            '
+            'lblActiveStudentsValue
+            '
+            Me.lblActiveStudentsValue.AutoSize = True
+            Me.lblActiveStudentsValue.Font = New System.Drawing.Font("Segoe UI", 24.0!, System.Drawing.FontStyle.Bold)
+            Me.lblActiveStudentsValue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.lblActiveStudentsValue.Location = New System.Drawing.Point(17, 14)
+            Me.lblActiveStudentsValue.Name = "lblActiveStudentsValue"
+            Me.lblActiveStudentsValue.Size = New System.Drawing.Size(38, 45)
+            Me.lblActiveStudentsValue.TabIndex = 1
+            Me.lblActiveStudentsValue.Text = "0"
+            '
+            'pnlAccent1
+            '
+            Me.pnlAccent1.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.pnlAccent1.Dock = System.Windows.Forms.DockStyle.Top
+            Me.pnlAccent1.Location = New System.Drawing.Point(0, 0)
+            Me.pnlAccent1.Name = "pnlAccent1"
+            Me.pnlAccent1.Size = New System.Drawing.Size(203, 4)
+            Me.pnlAccent1.TabIndex = 0
             '
             'pnlStudents
             '
@@ -647,41 +647,27 @@ Namespace RegistrarDocumentRequestSystem
             Me.pnlStudents.TabIndex = 1
             Me.pnlStudents.Visible = False
             '
-            'txtSearchStudents
+            'dgvStudents
             '
-            Me.txtSearchStudents.Location = New System.Drawing.Point(0, 4)
-            Me.txtSearchStudents.Name = "txtSearchStudents"
-            Me.txtSearchStudents.Size = New System.Drawing.Size(310, 25)
-            Me.txtSearchStudents.TabIndex = 0
-            '
-            'btnAddStudent
-            '
-            Me.btnAddStudent.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnAddStudent.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btnAddStudent.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
-            Me.btnAddStudent.ForeColor = System.Drawing.Color.White
-            Me.btnAddStudent.Location = New System.Drawing.Point(325, 1)
-            Me.btnAddStudent.Name = "btnAddStudent"
-            Me.btnAddStudent.Size = New System.Drawing.Size(150, 38)
-            Me.btnAddStudent.TabIndex = 1
-            Me.btnAddStudent.Text = "Add Student"
-            Me.btnAddStudent.UseVisualStyleBackColor = False
-            '
-            'btnEditStudent
-            '
-            Me.btnEditStudent.BackColor = System.Drawing.Color.White
-            Me.btnEditStudent.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.btnEditStudent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnEditStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btnEditStudent.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
-            Me.btnEditStudent.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnEditStudent.Location = New System.Drawing.Point(485, 1)
-            Me.btnEditStudent.Name = "btnEditStudent"
-            Me.btnEditStudent.Size = New System.Drawing.Size(105, 38)
-            Me.btnEditStudent.TabIndex = 2
-            Me.btnEditStudent.Text = "Edit"
-            Me.btnEditStudent.UseVisualStyleBackColor = False
+            Me.dgvStudents.AllowUserToAddRows = False
+            Me.dgvStudents.AllowUserToDeleteRows = False
+            Me.dgvStudents.AllowUserToResizeRows = False
+            Me.dgvStudents.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Me.dgvStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+            Me.dgvStudents.BackgroundColor = System.Drawing.Color.White
+            Me.dgvStudents.ColumnHeadersHeight = 38
+            Me.dgvStudents.GridColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(237, Byte), Integer))
+            Me.dgvStudents.Location = New System.Drawing.Point(0, 50)
+            Me.dgvStudents.MultiSelect = False
+            Me.dgvStudents.Name = "dgvStudents"
+            Me.dgvStudents.ReadOnly = True
+            Me.dgvStudents.RowHeadersVisible = False
+            Me.dgvStudents.RowTemplate.Height = 34
+            Me.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+            Me.dgvStudents.Size = New System.Drawing.Size(1085, 372)
+            Me.dgvStudents.TabIndex = 4
             '
             'btnToggleStudentStatus
             '
@@ -698,28 +684,41 @@ Namespace RegistrarDocumentRequestSystem
             Me.btnToggleStudentStatus.Text = "Activate / Deactivate"
             Me.btnToggleStudentStatus.UseVisualStyleBackColor = False
             '
-            'dgvStudents
+            'btnEditStudent
             '
-            Me.dgvStudents.AllowUserToAddRows = False
-            Me.dgvStudents.AllowUserToDeleteRows = False
-            Me.dgvStudents.AllowUserToResizeRows = False
-            Me.dgvStudents.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-            Me.dgvStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-            Me.dgvStudents.BackgroundColor = System.Drawing.Color.White
-            Me.dgvStudents.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-            Me.dgvStudents.ColumnHeadersHeight = 38
-            Me.dgvStudents.GridColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(237, Byte), Integer))
-            Me.dgvStudents.Location = New System.Drawing.Point(0, 50)
-            Me.dgvStudents.MultiSelect = False
-            Me.dgvStudents.Name = "dgvStudents"
-            Me.dgvStudents.ReadOnly = True
-            Me.dgvStudents.RowHeadersVisible = False
-            Me.dgvStudents.RowTemplate.Height = 34
-            Me.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-            Me.dgvStudents.Size = New System.Drawing.Size(1085, 440)
-            Me.dgvStudents.TabIndex = 4
+            Me.btnEditStudent.BackColor = System.Drawing.Color.White
+            Me.btnEditStudent.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btnEditStudent.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnEditStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btnEditStudent.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.btnEditStudent.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnEditStudent.Location = New System.Drawing.Point(485, 1)
+            Me.btnEditStudent.Name = "btnEditStudent"
+            Me.btnEditStudent.Size = New System.Drawing.Size(105, 38)
+            Me.btnEditStudent.TabIndex = 2
+            Me.btnEditStudent.Text = "Edit"
+            Me.btnEditStudent.UseVisualStyleBackColor = False
+            '
+            'btnAddStudent
+            '
+            Me.btnAddStudent.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnAddStudent.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btnAddStudent.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.btnAddStudent.ForeColor = System.Drawing.Color.White
+            Me.btnAddStudent.Location = New System.Drawing.Point(325, 1)
+            Me.btnAddStudent.Name = "btnAddStudent"
+            Me.btnAddStudent.Size = New System.Drawing.Size(150, 38)
+            Me.btnAddStudent.TabIndex = 1
+            Me.btnAddStudent.Text = "Add Student"
+            Me.btnAddStudent.UseVisualStyleBackColor = False
+            '
+            'txtSearchStudents
+            '
+            Me.txtSearchStudents.Location = New System.Drawing.Point(0, 4)
+            Me.txtSearchStudents.Name = "txtSearchStudents"
+            Me.txtSearchStudents.Size = New System.Drawing.Size(310, 24)
+            Me.txtSearchStudents.TabIndex = 0
             '
             'pnlDocuments
             '
@@ -738,89 +737,27 @@ Namespace RegistrarDocumentRequestSystem
             Me.pnlDocuments.TabIndex = 2
             Me.pnlDocuments.Visible = False
             '
-            'txtSearchDocuments
+            'dgvRecentSlips
             '
-            Me.txtSearchDocuments.Location = New System.Drawing.Point(0, 4)
-            Me.txtSearchDocuments.Name = "txtSearchDocuments"
-            Me.txtSearchDocuments.Size = New System.Drawing.Size(310, 25)
-            Me.txtSearchDocuments.TabIndex = 0
-            '
-            'btnAddDocument
-            '
-            Me.btnAddDocument.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnAddDocument.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.btnAddDocument.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btnAddDocument.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
-            Me.btnAddDocument.ForeColor = System.Drawing.Color.White
-            Me.btnAddDocument.Location = New System.Drawing.Point(325, 1)
-            Me.btnAddDocument.Name = "btnAddDocument"
-            Me.btnAddDocument.Size = New System.Drawing.Size(150, 38)
-            Me.btnAddDocument.TabIndex = 1
-            Me.btnAddDocument.Text = "Add Document"
-            Me.btnAddDocument.UseVisualStyleBackColor = False
-            '
-            'btnEditDocument
-            '
-            Me.btnEditDocument.BackColor = System.Drawing.Color.White
-            Me.btnEditDocument.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.btnEditDocument.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnEditDocument.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btnEditDocument.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
-            Me.btnEditDocument.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnEditDocument.Location = New System.Drawing.Point(485, 1)
-            Me.btnEditDocument.Name = "btnEditDocument"
-            Me.btnEditDocument.Size = New System.Drawing.Size(105, 38)
-            Me.btnEditDocument.TabIndex = 2
-            Me.btnEditDocument.Text = "Edit"
-            Me.btnEditDocument.UseVisualStyleBackColor = False
-            '
-            'btnToggleDocumentStatus
-            '
-            Me.btnToggleDocumentStatus.BackColor = System.Drawing.Color.White
-            Me.btnToggleDocumentStatus.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.btnToggleDocumentStatus.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnToggleDocumentStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btnToggleDocumentStatus.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
-            Me.btnToggleDocumentStatus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnToggleDocumentStatus.Location = New System.Drawing.Point(600, 1)
-            Me.btnToggleDocumentStatus.Name = "btnToggleDocumentStatus"
-            Me.btnToggleDocumentStatus.Size = New System.Drawing.Size(180, 38)
-            Me.btnToggleDocumentStatus.TabIndex = 3
-            Me.btnToggleDocumentStatus.Text = "Activate / Deactivate"
-            Me.btnToggleDocumentStatus.UseVisualStyleBackColor = False
-            '
-            'dgvDocuments
-            '
-            Me.dgvDocuments.AllowUserToAddRows = False
-            Me.dgvDocuments.AllowUserToDeleteRows = False
-            Me.dgvDocuments.AllowUserToResizeRows = False
-            Me.dgvDocuments.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Me.dgvRecentSlips.AllowUserToAddRows = False
+            Me.dgvRecentSlips.AllowUserToDeleteRows = False
+            Me.dgvRecentSlips.AllowUserToResizeRows = False
+            Me.dgvRecentSlips.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-            Me.dgvDocuments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-            Me.dgvDocuments.BackgroundColor = System.Drawing.Color.White
-            Me.dgvDocuments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-            Me.dgvDocuments.ColumnHeadersHeight = 38
-            Me.dgvDocuments.GridColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(237, Byte), Integer))
-            Me.dgvDocuments.Location = New System.Drawing.Point(0, 50)
-            Me.dgvDocuments.MultiSelect = False
-            Me.dgvDocuments.Name = "dgvDocuments"
-            Me.dgvDocuments.ReadOnly = True
-            Me.dgvDocuments.RowHeadersVisible = False
-            Me.dgvDocuments.RowTemplate.Height = 34
-            Me.dgvDocuments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-            Me.dgvDocuments.Size = New System.Drawing.Size(1085, 220)
-            Me.dgvDocuments.TabIndex = 4
-            '
-            'lblRecentSlips
-            '
-            Me.lblRecentSlips.AutoSize = True
-            Me.lblRecentSlips.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold)
-            Me.lblRecentSlips.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
-            Me.lblRecentSlips.Location = New System.Drawing.Point(0, 285)
-            Me.lblRecentSlips.Name = "lblRecentSlips"
-            Me.lblRecentSlips.Size = New System.Drawing.Size(189, 25)
-            Me.lblRecentSlips.TabIndex = 5
-            Me.lblRecentSlips.Text = "Recent Request Slips"
+            Me.dgvRecentSlips.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+            Me.dgvRecentSlips.BackgroundColor = System.Drawing.Color.White
+            Me.dgvRecentSlips.ColumnHeadersHeight = 38
+            Me.dgvRecentSlips.GridColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(237, Byte), Integer))
+            Me.dgvRecentSlips.Location = New System.Drawing.Point(0, 325)
+            Me.dgvRecentSlips.MultiSelect = False
+            Me.dgvRecentSlips.Name = "dgvRecentSlips"
+            Me.dgvRecentSlips.ReadOnly = True
+            Me.dgvRecentSlips.RowHeadersVisible = False
+            Me.dgvRecentSlips.RowTemplate.Height = 34
+            Me.dgvRecentSlips.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+            Me.dgvRecentSlips.Size = New System.Drawing.Size(1085, 147)
+            Me.dgvRecentSlips.TabIndex = 7
             '
             'btnViewSlipDocument
             '
@@ -837,28 +774,88 @@ Namespace RegistrarDocumentRequestSystem
             Me.btnViewSlipDocument.Text = "View Slip"
             Me.btnViewSlipDocument.UseVisualStyleBackColor = False
             '
-            'dgvRecentSlips
+            'lblRecentSlips
             '
-            Me.dgvRecentSlips.AllowUserToAddRows = False
-            Me.dgvRecentSlips.AllowUserToDeleteRows = False
-            Me.dgvRecentSlips.AllowUserToResizeRows = False
-            Me.dgvRecentSlips.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+            Me.lblRecentSlips.AutoSize = True
+            Me.lblRecentSlips.Font = New System.Drawing.Font("Segoe UI", 13.0!, System.Drawing.FontStyle.Bold)
+            Me.lblRecentSlips.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
+            Me.lblRecentSlips.Location = New System.Drawing.Point(0, 285)
+            Me.lblRecentSlips.Name = "lblRecentSlips"
+            Me.lblRecentSlips.Size = New System.Drawing.Size(189, 25)
+            Me.lblRecentSlips.TabIndex = 5
+            Me.lblRecentSlips.Text = "Recent Request Slips"
+            '
+            'dgvDocuments
+            '
+            Me.dgvDocuments.AllowUserToAddRows = False
+            Me.dgvDocuments.AllowUserToDeleteRows = False
+            Me.dgvDocuments.AllowUserToResizeRows = False
+            Me.dgvDocuments.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-            Me.dgvRecentSlips.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-            Me.dgvRecentSlips.BackgroundColor = System.Drawing.Color.White
-            Me.dgvRecentSlips.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-            Me.dgvRecentSlips.ColumnHeadersHeight = 38
-            Me.dgvRecentSlips.GridColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(237, Byte), Integer))
-            Me.dgvRecentSlips.Location = New System.Drawing.Point(0, 325)
-            Me.dgvRecentSlips.MultiSelect = False
-            Me.dgvRecentSlips.Name = "dgvRecentSlips"
-            Me.dgvRecentSlips.ReadOnly = True
-            Me.dgvRecentSlips.RowHeadersVisible = False
-            Me.dgvRecentSlips.RowTemplate.Height = 34
-            Me.dgvRecentSlips.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-            Me.dgvRecentSlips.Size = New System.Drawing.Size(1085, 215)
-            Me.dgvRecentSlips.TabIndex = 7
+            Me.dgvDocuments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+            Me.dgvDocuments.BackgroundColor = System.Drawing.Color.White
+            Me.dgvDocuments.ColumnHeadersHeight = 38
+            Me.dgvDocuments.GridColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(237, Byte), Integer))
+            Me.dgvDocuments.Location = New System.Drawing.Point(0, 50)
+            Me.dgvDocuments.MultiSelect = False
+            Me.dgvDocuments.Name = "dgvDocuments"
+            Me.dgvDocuments.ReadOnly = True
+            Me.dgvDocuments.RowHeadersVisible = False
+            Me.dgvDocuments.RowTemplate.Height = 34
+            Me.dgvDocuments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+            Me.dgvDocuments.Size = New System.Drawing.Size(1085, 220)
+            Me.dgvDocuments.TabIndex = 4
+            '
+            'btnToggleDocumentStatus
+            '
+            Me.btnToggleDocumentStatus.BackColor = System.Drawing.Color.White
+            Me.btnToggleDocumentStatus.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btnToggleDocumentStatus.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnToggleDocumentStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btnToggleDocumentStatus.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.btnToggleDocumentStatus.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnToggleDocumentStatus.Location = New System.Drawing.Point(600, 1)
+            Me.btnToggleDocumentStatus.Name = "btnToggleDocumentStatus"
+            Me.btnToggleDocumentStatus.Size = New System.Drawing.Size(180, 38)
+            Me.btnToggleDocumentStatus.TabIndex = 3
+            Me.btnToggleDocumentStatus.Text = "Activate / Deactivate"
+            Me.btnToggleDocumentStatus.UseVisualStyleBackColor = False
+            '
+            'btnEditDocument
+            '
+            Me.btnEditDocument.BackColor = System.Drawing.Color.White
+            Me.btnEditDocument.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btnEditDocument.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnEditDocument.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btnEditDocument.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.btnEditDocument.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnEditDocument.Location = New System.Drawing.Point(485, 1)
+            Me.btnEditDocument.Name = "btnEditDocument"
+            Me.btnEditDocument.Size = New System.Drawing.Size(105, 38)
+            Me.btnEditDocument.TabIndex = 2
+            Me.btnEditDocument.Text = "Edit"
+            Me.btnEditDocument.UseVisualStyleBackColor = False
+            '
+            'btnAddDocument
+            '
+            Me.btnAddDocument.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnAddDocument.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btnAddDocument.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btnAddDocument.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.btnAddDocument.ForeColor = System.Drawing.Color.White
+            Me.btnAddDocument.Location = New System.Drawing.Point(325, 1)
+            Me.btnAddDocument.Name = "btnAddDocument"
+            Me.btnAddDocument.Size = New System.Drawing.Size(150, 38)
+            Me.btnAddDocument.TabIndex = 1
+            Me.btnAddDocument.Text = "Add Document"
+            Me.btnAddDocument.UseVisualStyleBackColor = False
+            '
+            'txtSearchDocuments
+            '
+            Me.txtSearchDocuments.Location = New System.Drawing.Point(0, 4)
+            Me.txtSearchDocuments.Name = "txtSearchDocuments"
+            Me.txtSearchDocuments.Size = New System.Drawing.Size(310, 24)
+            Me.txtSearchDocuments.TabIndex = 0
             '
             'pnlNewRequest
             '
@@ -874,7 +871,8 @@ Namespace RegistrarDocumentRequestSystem
             Me.pnlNewRequest.Controls.Add(Me.txtPurpose)
             Me.pnlNewRequest.Controls.Add(Me.lblStudentError)
             Me.pnlNewRequest.Controls.Add(Me.lblStudentInfo)
-            Me.pnlNewRequest.Controls.Add(Me.cboStudent)
+            Me.pnlNewRequest.Controls.Add(Me.lstStudentResults)
+            Me.pnlNewRequest.Controls.Add(Me.txtSearchStudent)
             Me.pnlNewRequest.Dock = System.Windows.Forms.DockStyle.Fill
             Me.pnlNewRequest.Location = New System.Drawing.Point(28, 10)
             Me.pnlNewRequest.Name = "pnlNewRequest"
@@ -882,109 +880,30 @@ Namespace RegistrarDocumentRequestSystem
             Me.pnlNewRequest.TabIndex = 3
             Me.pnlNewRequest.Visible = False
             '
-            'cboStudent
+            'btnSaveRequest
             '
-            Me.cboStudent.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-            Me.cboStudent.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-            Me.cboStudent.DropDownHeight = 220
-            Me.cboStudent.IntegralHeight = False
-            Me.cboStudent.Location = New System.Drawing.Point(0, 4)
-            Me.cboStudent.MaxDropDownItems = 10
-            Me.cboStudent.Name = "cboStudent"
-            Me.cboStudent.Size = New System.Drawing.Size(455, 25)
-            Me.cboStudent.TabIndex = 0
+            Me.btnSaveRequest.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnSaveRequest.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btnSaveRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btnSaveRequest.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.btnSaveRequest.ForeColor = System.Drawing.Color.White
+            Me.btnSaveRequest.Location = New System.Drawing.Point(0, 390)
+            Me.btnSaveRequest.Name = "btnSaveRequest"
+            Me.btnSaveRequest.Size = New System.Drawing.Size(160, 38)
+            Me.btnSaveRequest.TabIndex = 12
+            Me.btnSaveRequest.Text = "Save Request"
+            Me.btnSaveRequest.UseVisualStyleBackColor = False
             '
-            'lblStudentInfo
+            'lblTotalAmount
             '
-            Me.lblStudentInfo.AutoSize = True
-            Me.lblStudentInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(101, Byte), Integer), CType(CType(116, Byte), Integer), CType(CType(139, Byte), Integer))
-            Me.lblStudentInfo.Location = New System.Drawing.Point(475, 9)
-            Me.lblStudentInfo.Name = "lblStudentInfo"
-            Me.lblStudentInfo.Size = New System.Drawing.Size(0, 17)
-            Me.lblStudentInfo.TabIndex = 1
-            '
-            'lblStudentError
-            '
-            Me.lblStudentError.Font = New System.Drawing.Font("Segoe UI", 8.0!)
-            Me.lblStudentError.ForeColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-            Me.lblStudentError.Location = New System.Drawing.Point(0, 31)
-            Me.lblStudentError.Name = "lblStudentError"
-            Me.lblStudentError.Size = New System.Drawing.Size(455, 17)
-            Me.lblStudentError.TabIndex = 2
-            '
-            'txtPurpose
-            '
-            Me.txtPurpose.Location = New System.Drawing.Point(0, 56)
-            Me.txtPurpose.MaxLength = 150
-            Me.txtPurpose.Name = "txtPurpose"
-            Me.txtPurpose.Size = New System.Drawing.Size(455, 25)
-            Me.txtPurpose.TabIndex = 3
-            '
-            'lblPurposeError
-            '
-            Me.lblPurposeError.Font = New System.Drawing.Font("Segoe UI", 8.0!)
-            Me.lblPurposeError.ForeColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-            Me.lblPurposeError.Location = New System.Drawing.Point(0, 83)
-            Me.lblPurposeError.Name = "lblPurposeError"
-            Me.lblPurposeError.Size = New System.Drawing.Size(455, 17)
-            Me.lblPurposeError.TabIndex = 4
-            '
-            'cboDocument
-            '
-            Me.cboDocument.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-            Me.cboDocument.FormattingEnabled = True
-            Me.cboDocument.Location = New System.Drawing.Point(0, 108)
-            Me.cboDocument.Name = "cboDocument"
-            Me.cboDocument.Size = New System.Drawing.Size(315, 25)
-            Me.cboDocument.TabIndex = 5
-            '
-            'nudQuantity
-            '
-            Me.nudQuantity.Location = New System.Drawing.Point(330, 108)
-            Me.nudQuantity.Maximum = New Decimal(New Integer() {20, 0, 0, 0})
-            Me.nudQuantity.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-            Me.nudQuantity.Name = "nudQuantity"
-            Me.nudQuantity.Size = New System.Drawing.Size(75, 25)
-            Me.nudQuantity.TabIndex = 6
-            Me.nudQuantity.Value = New Decimal(New Integer() {1, 0, 0, 0})
-            '
-            'btnAddItem
-            '
-            Me.btnAddItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnAddItem.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btnAddItem.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
-            Me.btnAddItem.ForeColor = System.Drawing.Color.White
-            Me.btnAddItem.Location = New System.Drawing.Point(420, 104)
-            Me.btnAddItem.Name = "btnAddItem"
-            Me.btnAddItem.Size = New System.Drawing.Size(120, 38)
-            Me.btnAddItem.TabIndex = 7
-            Me.btnAddItem.Text = "Add Item"
-            Me.btnAddItem.UseVisualStyleBackColor = False
-            '
-            'btnRemoveItem
-            '
-            Me.btnRemoveItem.BackColor = System.Drawing.Color.White
-            Me.btnRemoveItem.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.btnRemoveItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnRemoveItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btnRemoveItem.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
-            Me.btnRemoveItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnRemoveItem.Location = New System.Drawing.Point(550, 104)
-            Me.btnRemoveItem.Name = "btnRemoveItem"
-            Me.btnRemoveItem.Size = New System.Drawing.Size(130, 38)
-            Me.btnRemoveItem.TabIndex = 8
-            Me.btnRemoveItem.Text = "Remove Item"
-            Me.btnRemoveItem.UseVisualStyleBackColor = False
-            '
-            'lblItemError
-            '
-            Me.lblItemError.Font = New System.Drawing.Font("Segoe UI", 8.0!)
-            Me.lblItemError.ForeColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
-            Me.lblItemError.Location = New System.Drawing.Point(700, 113)
-            Me.lblItemError.Name = "lblItemError"
-            Me.lblItemError.Size = New System.Drawing.Size(280, 20)
-            Me.lblItemError.TabIndex = 9
+            Me.lblTotalAmount.AutoSize = True
+            Me.lblTotalAmount.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold)
+            Me.lblTotalAmount.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.lblTotalAmount.Location = New System.Drawing.Point(0, 345)
+            Me.lblTotalAmount.Name = "lblTotalAmount"
+            Me.lblTotalAmount.Size = New System.Drawing.Size(193, 28)
+            Me.lblTotalAmount.TabIndex = 11
+            Me.lblTotalAmount.Text = "Total Amount: 0.00"
             '
             'dgvRequestItems
             '
@@ -995,7 +914,6 @@ Namespace RegistrarDocumentRequestSystem
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
             Me.dgvRequestItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
             Me.dgvRequestItems.BackgroundColor = System.Drawing.Color.White
-            Me.dgvRequestItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
             Me.dgvRequestItems.ColumnHeadersHeight = 38
             Me.dgvRequestItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colDocument, Me.colFee, Me.colQuantity, Me.colSubtotal})
             Me.dgvRequestItems.GridColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(237, Byte), Integer))
@@ -1019,8 +937,8 @@ Namespace RegistrarDocumentRequestSystem
             'colFee
             '
             Me.colFee.DataPropertyName = "Fee"
-            DataGridViewCellStyle1.Format = "N2"
-            Me.colFee.DefaultCellStyle = DataGridViewCellStyle1
+            DataGridViewCellStyle3.Format = "N2"
+            Me.colFee.DefaultCellStyle = DataGridViewCellStyle3
             Me.colFee.HeaderText = "Fee"
             Me.colFee.Name = "colFee"
             Me.colFee.ReadOnly = True
@@ -1035,36 +953,122 @@ Namespace RegistrarDocumentRequestSystem
             'colSubtotal
             '
             Me.colSubtotal.DataPropertyName = "Subtotal"
-            DataGridViewCellStyle2.Format = "N2"
-            Me.colSubtotal.DefaultCellStyle = DataGridViewCellStyle2
+            DataGridViewCellStyle4.Format = "N2"
+            Me.colSubtotal.DefaultCellStyle = DataGridViewCellStyle4
             Me.colSubtotal.HeaderText = "Subtotal"
             Me.colSubtotal.Name = "colSubtotal"
             Me.colSubtotal.ReadOnly = True
             '
-            'lblTotalAmount
+            'lblItemError
             '
-            Me.lblTotalAmount.AutoSize = True
-            Me.lblTotalAmount.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold)
-            Me.lblTotalAmount.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.lblTotalAmount.Location = New System.Drawing.Point(0, 345)
-            Me.lblTotalAmount.Name = "lblTotalAmount"
-            Me.lblTotalAmount.Size = New System.Drawing.Size(193, 28)
-            Me.lblTotalAmount.TabIndex = 11
-            Me.lblTotalAmount.Text = "Total Amount: 0.00"
+            Me.lblItemError.Font = New System.Drawing.Font("Segoe UI", 8.0!)
+            Me.lblItemError.ForeColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+            Me.lblItemError.Location = New System.Drawing.Point(700, 113)
+            Me.lblItemError.Name = "lblItemError"
+            Me.lblItemError.Size = New System.Drawing.Size(280, 20)
+            Me.lblItemError.TabIndex = 9
             '
-            'btnSaveRequest
+            'btnRemoveItem
             '
-            Me.btnSaveRequest.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnSaveRequest.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.btnSaveRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btnSaveRequest.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
-            Me.btnSaveRequest.ForeColor = System.Drawing.Color.White
-            Me.btnSaveRequest.Location = New System.Drawing.Point(0, 390)
-            Me.btnSaveRequest.Name = "btnSaveRequest"
-            Me.btnSaveRequest.Size = New System.Drawing.Size(160, 38)
-            Me.btnSaveRequest.TabIndex = 12
-            Me.btnSaveRequest.Text = "Save Request"
-            Me.btnSaveRequest.UseVisualStyleBackColor = False
+            Me.btnRemoveItem.BackColor = System.Drawing.Color.White
+            Me.btnRemoveItem.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btnRemoveItem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnRemoveItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btnRemoveItem.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.btnRemoveItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnRemoveItem.Location = New System.Drawing.Point(550, 104)
+            Me.btnRemoveItem.Name = "btnRemoveItem"
+            Me.btnRemoveItem.Size = New System.Drawing.Size(130, 38)
+            Me.btnRemoveItem.TabIndex = 8
+            Me.btnRemoveItem.Text = "Remove Item"
+            Me.btnRemoveItem.UseVisualStyleBackColor = False
+            '
+            'btnAddItem
+            '
+            Me.btnAddItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnAddItem.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btnAddItem.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.btnAddItem.ForeColor = System.Drawing.Color.White
+            Me.btnAddItem.Location = New System.Drawing.Point(420, 104)
+            Me.btnAddItem.Name = "btnAddItem"
+            Me.btnAddItem.Size = New System.Drawing.Size(120, 38)
+            Me.btnAddItem.TabIndex = 7
+            Me.btnAddItem.Text = "Add Item"
+            Me.btnAddItem.UseVisualStyleBackColor = False
+            '
+            'nudQuantity
+            '
+            Me.nudQuantity.Location = New System.Drawing.Point(330, 108)
+            Me.nudQuantity.Maximum = New Decimal(New Integer() {20, 0, 0, 0})
+            Me.nudQuantity.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+            Me.nudQuantity.Name = "nudQuantity"
+            Me.nudQuantity.Size = New System.Drawing.Size(75, 24)
+            Me.nudQuantity.TabIndex = 6
+            Me.nudQuantity.Value = New Decimal(New Integer() {1, 0, 0, 0})
+            '
+            'cboDocument
+            '
+            Me.cboDocument.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+            Me.cboDocument.FormattingEnabled = True
+            Me.cboDocument.Location = New System.Drawing.Point(0, 108)
+            Me.cboDocument.Name = "cboDocument"
+            Me.cboDocument.Size = New System.Drawing.Size(315, 25)
+            Me.cboDocument.TabIndex = 5
+            '
+            'lblPurposeError
+            '
+            Me.lblPurposeError.Font = New System.Drawing.Font("Segoe UI", 8.0!)
+            Me.lblPurposeError.ForeColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+            Me.lblPurposeError.Location = New System.Drawing.Point(0, 83)
+            Me.lblPurposeError.Name = "lblPurposeError"
+            Me.lblPurposeError.Size = New System.Drawing.Size(455, 17)
+            Me.lblPurposeError.TabIndex = 4
+            '
+            'txtPurpose
+            '
+            Me.txtPurpose.Location = New System.Drawing.Point(0, 56)
+            Me.txtPurpose.MaxLength = 150
+            Me.txtPurpose.Name = "txtPurpose"
+            Me.txtPurpose.Size = New System.Drawing.Size(455, 24)
+            Me.txtPurpose.TabIndex = 3
+            '
+            'lblStudentError
+            '
+            Me.lblStudentError.Font = New System.Drawing.Font("Segoe UI", 8.0!)
+            Me.lblStudentError.ForeColor = System.Drawing.Color.FromArgb(CType(CType(190, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(55, Byte), Integer))
+            Me.lblStudentError.Location = New System.Drawing.Point(0, 31)
+            Me.lblStudentError.Name = "lblStudentError"
+            Me.lblStudentError.Size = New System.Drawing.Size(455, 17)
+            Me.lblStudentError.TabIndex = 2
+            '
+            'lblStudentInfo
+            '
+            Me.lblStudentInfo.AutoSize = True
+            Me.lblStudentInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(101, Byte), Integer), CType(CType(116, Byte), Integer), CType(CType(139, Byte), Integer))
+            Me.lblStudentInfo.Location = New System.Drawing.Point(475, 9)
+            Me.lblStudentInfo.Name = "lblStudentInfo"
+            Me.lblStudentInfo.Size = New System.Drawing.Size(0, 17)
+            Me.lblStudentInfo.TabIndex = 1
+            '
+            'txtSearchStudent
+            '
+            Me.txtSearchStudent.Location = New System.Drawing.Point(0, 4)
+            Me.txtSearchStudent.Name = "txtSearchStudent"
+            Me.txtSearchStudent.Size = New System.Drawing.Size(455, 25)
+            Me.txtSearchStudent.TabIndex = 0
+            '
+            'lstStudentResults
+            '
+            Me.lstStudentResults.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+            Me.lstStudentResults.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.lstStudentResults.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+            Me.lstStudentResults.ItemHeight = 20
+            Me.lstStudentResults.Location = New System.Drawing.Point(0, 31)
+            Me.lstStudentResults.Name = "lstStudentResults"
+            Me.lstStudentResults.Size = New System.Drawing.Size(455, 122)
+            Me.lstStudentResults.TabIndex = 1
+            Me.lstStudentResults.Visible = False
             '
             'pnlRequests
             '
@@ -1080,41 +1084,27 @@ Namespace RegistrarDocumentRequestSystem
             Me.pnlRequests.TabIndex = 4
             Me.pnlRequests.Visible = False
             '
-            'txtSearchRequests
+            'dgvRequests
             '
-            Me.txtSearchRequests.Location = New System.Drawing.Point(0, 4)
-            Me.txtSearchRequests.Name = "txtSearchRequests"
-            Me.txtSearchRequests.Size = New System.Drawing.Size(310, 25)
-            Me.txtSearchRequests.TabIndex = 0
-            '
-            'btnViewDetails
-            '
-            Me.btnViewDetails.BackColor = System.Drawing.Color.White
-            Me.btnViewDetails.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.btnViewDetails.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnViewDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btnViewDetails.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
-            Me.btnViewDetails.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnViewDetails.Location = New System.Drawing.Point(325, 1)
-            Me.btnViewDetails.Name = "btnViewDetails"
-            Me.btnViewDetails.Size = New System.Drawing.Size(130, 38)
-            Me.btnViewDetails.TabIndex = 1
-            Me.btnViewDetails.Text = "View Details"
-            Me.btnViewDetails.UseVisualStyleBackColor = False
-            '
-            'btnUpdateStatus
-            '
-            Me.btnUpdateStatus.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnUpdateStatus.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.btnUpdateStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btnUpdateStatus.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
-            Me.btnUpdateStatus.ForeColor = System.Drawing.Color.White
-            Me.btnUpdateStatus.Location = New System.Drawing.Point(465, 1)
-            Me.btnUpdateStatus.Name = "btnUpdateStatus"
-            Me.btnUpdateStatus.Size = New System.Drawing.Size(155, 38)
-            Me.btnUpdateStatus.TabIndex = 2
-            Me.btnUpdateStatus.Text = "Payment / Status"
-            Me.btnUpdateStatus.UseVisualStyleBackColor = False
+            Me.dgvRequests.AllowUserToAddRows = False
+            Me.dgvRequests.AllowUserToDeleteRows = False
+            Me.dgvRequests.AllowUserToResizeRows = False
+            Me.dgvRequests.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Me.dgvRequests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+            Me.dgvRequests.BackgroundColor = System.Drawing.Color.White
+            Me.dgvRequests.ColumnHeadersHeight = 38
+            Me.dgvRequests.GridColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(237, Byte), Integer))
+            Me.dgvRequests.Location = New System.Drawing.Point(0, 50)
+            Me.dgvRequests.MultiSelect = False
+            Me.dgvRequests.Name = "dgvRequests"
+            Me.dgvRequests.ReadOnly = True
+            Me.dgvRequests.RowHeadersVisible = False
+            Me.dgvRequests.RowTemplate.Height = 34
+            Me.dgvRequests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+            Me.dgvRequests.Size = New System.Drawing.Size(1085, 372)
+            Me.dgvRequests.TabIndex = 4
             '
             'btnViewSlipRequest
             '
@@ -1131,28 +1121,41 @@ Namespace RegistrarDocumentRequestSystem
             Me.btnViewSlipRequest.Text = "View Slip"
             Me.btnViewSlipRequest.UseVisualStyleBackColor = False
             '
-            'dgvRequests
+            'btnUpdateStatus
             '
-            Me.dgvRequests.AllowUserToAddRows = False
-            Me.dgvRequests.AllowUserToDeleteRows = False
-            Me.dgvRequests.AllowUserToResizeRows = False
-            Me.dgvRequests.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-            Me.dgvRequests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-            Me.dgvRequests.BackgroundColor = System.Drawing.Color.White
-            Me.dgvRequests.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-            Me.dgvRequests.ColumnHeadersHeight = 38
-            Me.dgvRequests.GridColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(237, Byte), Integer))
-            Me.dgvRequests.Location = New System.Drawing.Point(0, 50)
-            Me.dgvRequests.MultiSelect = False
-            Me.dgvRequests.Name = "dgvRequests"
-            Me.dgvRequests.ReadOnly = True
-            Me.dgvRequests.RowHeadersVisible = False
-            Me.dgvRequests.RowTemplate.Height = 34
-            Me.dgvRequests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-            Me.dgvRequests.Size = New System.Drawing.Size(1085, 440)
-            Me.dgvRequests.TabIndex = 4
+            Me.btnUpdateStatus.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnUpdateStatus.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btnUpdateStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btnUpdateStatus.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.btnUpdateStatus.ForeColor = System.Drawing.Color.White
+            Me.btnUpdateStatus.Location = New System.Drawing.Point(465, 1)
+            Me.btnUpdateStatus.Name = "btnUpdateStatus"
+            Me.btnUpdateStatus.Size = New System.Drawing.Size(155, 38)
+            Me.btnUpdateStatus.TabIndex = 2
+            Me.btnUpdateStatus.Text = "Payment / Status"
+            Me.btnUpdateStatus.UseVisualStyleBackColor = False
+            '
+            'btnViewDetails
+            '
+            Me.btnViewDetails.BackColor = System.Drawing.Color.White
+            Me.btnViewDetails.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btnViewDetails.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnViewDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btnViewDetails.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.btnViewDetails.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnViewDetails.Location = New System.Drawing.Point(325, 1)
+            Me.btnViewDetails.Name = "btnViewDetails"
+            Me.btnViewDetails.Size = New System.Drawing.Size(130, 38)
+            Me.btnViewDetails.TabIndex = 1
+            Me.btnViewDetails.Text = "View Details"
+            Me.btnViewDetails.UseVisualStyleBackColor = False
+            '
+            'txtSearchRequests
+            '
+            Me.txtSearchRequests.Location = New System.Drawing.Point(0, 4)
+            Me.txtSearchRequests.Name = "txtSearchRequests"
+            Me.txtSearchRequests.Size = New System.Drawing.Size(310, 24)
+            Me.txtSearchRequests.TabIndex = 0
             '
             'pnlReports
             '
@@ -1169,31 +1172,38 @@ Namespace RegistrarDocumentRequestSystem
             Me.pnlReports.TabIndex = 5
             Me.pnlReports.Visible = False
             '
-            'cboReportType
+            'dgvReports
             '
-            Me.cboReportType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-            Me.cboReportType.FormattingEnabled = True
-            Me.cboReportType.Items.AddRange(New Object() {"All Requests", "Pending Requests", "Released Requests", "Payments Collected"})
-            Me.cboReportType.Location = New System.Drawing.Point(0, 4)
-            Me.cboReportType.Name = "cboReportType"
-            Me.cboReportType.Size = New System.Drawing.Size(230, 25)
-            Me.cboReportType.TabIndex = 0
+            Me.dgvReports.AllowUserToAddRows = False
+            Me.dgvReports.AllowUserToDeleteRows = False
+            Me.dgvReports.AllowUserToResizeRows = False
+            Me.dgvReports.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Me.dgvReports.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+            Me.dgvReports.BackgroundColor = System.Drawing.Color.White
+            Me.dgvReports.ColumnHeadersHeight = 38
+            Me.dgvReports.GridColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(237, Byte), Integer))
+            Me.dgvReports.Location = New System.Drawing.Point(0, 50)
+            Me.dgvReports.MultiSelect = False
+            Me.dgvReports.Name = "dgvReports"
+            Me.dgvReports.ReadOnly = True
+            Me.dgvReports.RowHeadersVisible = False
+            Me.dgvReports.RowTemplate.Height = 34
+            Me.dgvReports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+            Me.dgvReports.Size = New System.Drawing.Size(1085, 372)
+            Me.dgvReports.TabIndex = 5
             '
-            'dtpFromDate
+            'lblReportTotal
             '
-            Me.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-            Me.dtpFromDate.Location = New System.Drawing.Point(245, 4)
-            Me.dtpFromDate.Name = "dtpFromDate"
-            Me.dtpFromDate.Size = New System.Drawing.Size(135, 25)
-            Me.dtpFromDate.TabIndex = 1
-            '
-            'dtpToDate
-            '
-            Me.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-            Me.dtpToDate.Location = New System.Drawing.Point(390, 4)
-            Me.dtpToDate.Name = "dtpToDate"
-            Me.dtpToDate.Size = New System.Drawing.Size(135, 25)
-            Me.dtpToDate.TabIndex = 2
+            Me.lblReportTotal.AutoSize = True
+            Me.lblReportTotal.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
+            Me.lblReportTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.lblReportTotal.Location = New System.Drawing.Point(675, 10)
+            Me.lblReportTotal.Name = "lblReportTotal"
+            Me.lblReportTotal.Size = New System.Drawing.Size(128, 19)
+            Me.lblReportTotal.TabIndex = 4
+            Me.lblReportTotal.Text = "Report Total: 0.00"
             '
             'btnGenerateReport
             '
@@ -1209,39 +1219,31 @@ Namespace RegistrarDocumentRequestSystem
             Me.btnGenerateReport.Text = "Generate"
             Me.btnGenerateReport.UseVisualStyleBackColor = False
             '
-            'lblReportTotal
+            'dtpToDate
             '
-            Me.lblReportTotal.AutoSize = True
-            Me.lblReportTotal.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
-            Me.lblReportTotal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.lblReportTotal.Location = New System.Drawing.Point(675, 10)
-            Me.lblReportTotal.Name = "lblReportTotal"
-            Me.lblReportTotal.Size = New System.Drawing.Size(126, 19)
-            Me.lblReportTotal.TabIndex = 4
-            Me.lblReportTotal.Text = "Report Total: 0.00"
+            Me.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+            Me.dtpToDate.Location = New System.Drawing.Point(390, 4)
+            Me.dtpToDate.Name = "dtpToDate"
+            Me.dtpToDate.Size = New System.Drawing.Size(135, 24)
+            Me.dtpToDate.TabIndex = 2
             '
-            'dgvReports
+            'dtpFromDate
             '
-            Me.dgvReports.AllowUserToAddRows = False
-            Me.dgvReports.AllowUserToDeleteRows = False
-            Me.dgvReports.AllowUserToResizeRows = False
-            Me.dgvReports.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-            Me.dgvReports.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-            Me.dgvReports.BackgroundColor = System.Drawing.Color.White
-            Me.dgvReports.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-            Me.dgvReports.ColumnHeadersHeight = 38
-            Me.dgvReports.GridColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(237, Byte), Integer))
-            Me.dgvReports.Location = New System.Drawing.Point(0, 50)
-            Me.dgvReports.MultiSelect = False
-            Me.dgvReports.Name = "dgvReports"
-            Me.dgvReports.ReadOnly = True
-            Me.dgvReports.RowHeadersVisible = False
-            Me.dgvReports.RowTemplate.Height = 34
-            Me.dgvReports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-            Me.dgvReports.Size = New System.Drawing.Size(1085, 440)
-            Me.dgvReports.TabIndex = 5
+            Me.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+            Me.dtpFromDate.Location = New System.Drawing.Point(245, 4)
+            Me.dtpFromDate.Name = "dtpFromDate"
+            Me.dtpFromDate.Size = New System.Drawing.Size(135, 24)
+            Me.dtpFromDate.TabIndex = 1
+            '
+            'cboReportType
+            '
+            Me.cboReportType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+            Me.cboReportType.FormattingEnabled = True
+            Me.cboReportType.Items.AddRange(New Object() {"All Requests", "Pending Requests", "Released Requests", "Payments Collected"})
+            Me.cboReportType.Location = New System.Drawing.Point(0, 4)
+            Me.cboReportType.Name = "cboReportType"
+            Me.cboReportType.Size = New System.Drawing.Size(230, 25)
+            Me.cboReportType.TabIndex = 0
             '
             'pnlUsers
             '
@@ -1257,41 +1259,27 @@ Namespace RegistrarDocumentRequestSystem
             Me.pnlUsers.TabIndex = 6
             Me.pnlUsers.Visible = False
             '
-            'txtSearchUsers
+            'dgvUsers
             '
-            Me.txtSearchUsers.Location = New System.Drawing.Point(0, 4)
-            Me.txtSearchUsers.Name = "txtSearchUsers"
-            Me.txtSearchUsers.Size = New System.Drawing.Size(310, 25)
-            Me.txtSearchUsers.TabIndex = 0
-            '
-            'btnAddUser
-            '
-            Me.btnAddUser.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnAddUser.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btnAddUser.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
-            Me.btnAddUser.ForeColor = System.Drawing.Color.White
-            Me.btnAddUser.Location = New System.Drawing.Point(325, 1)
-            Me.btnAddUser.Name = "btnAddUser"
-            Me.btnAddUser.Size = New System.Drawing.Size(120, 38)
-            Me.btnAddUser.TabIndex = 1
-            Me.btnAddUser.Text = "Add User"
-            Me.btnAddUser.UseVisualStyleBackColor = False
-            '
-            'btnEditUser
-            '
-            Me.btnEditUser.BackColor = System.Drawing.Color.White
-            Me.btnEditUser.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.btnEditUser.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnEditUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-            Me.btnEditUser.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
-            Me.btnEditUser.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
-            Me.btnEditUser.Location = New System.Drawing.Point(455, 1)
-            Me.btnEditUser.Name = "btnEditUser"
-            Me.btnEditUser.Size = New System.Drawing.Size(100, 38)
-            Me.btnEditUser.TabIndex = 2
-            Me.btnEditUser.Text = "Edit"
-            Me.btnEditUser.UseVisualStyleBackColor = False
+            Me.dgvUsers.AllowUserToAddRows = False
+            Me.dgvUsers.AllowUserToDeleteRows = False
+            Me.dgvUsers.AllowUserToResizeRows = False
+            Me.dgvUsers.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Me.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+            Me.dgvUsers.BackgroundColor = System.Drawing.Color.White
+            Me.dgvUsers.ColumnHeadersHeight = 38
+            Me.dgvUsers.GridColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(237, Byte), Integer))
+            Me.dgvUsers.Location = New System.Drawing.Point(0, 50)
+            Me.dgvUsers.MultiSelect = False
+            Me.dgvUsers.Name = "dgvUsers"
+            Me.dgvUsers.ReadOnly = True
+            Me.dgvUsers.RowHeadersVisible = False
+            Me.dgvUsers.RowTemplate.Height = 34
+            Me.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+            Me.dgvUsers.Size = New System.Drawing.Size(1085, 372)
+            Me.dgvUsers.TabIndex = 4
             '
             'btnToggleUserStatus
             '
@@ -1308,28 +1296,41 @@ Namespace RegistrarDocumentRequestSystem
             Me.btnToggleUserStatus.Text = "Activate / Deactivate"
             Me.btnToggleUserStatus.UseVisualStyleBackColor = False
             '
-            'dgvUsers
+            'btnEditUser
             '
-            Me.dgvUsers.AllowUserToAddRows = False
-            Me.dgvUsers.AllowUserToDeleteRows = False
-            Me.dgvUsers.AllowUserToResizeRows = False
-            Me.dgvUsers.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-            Me.dgvUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-            Me.dgvUsers.BackgroundColor = System.Drawing.Color.White
-            Me.dgvUsers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-            Me.dgvUsers.ColumnHeadersHeight = 38
-            Me.dgvUsers.GridColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(237, Byte), Integer))
-            Me.dgvUsers.Location = New System.Drawing.Point(0, 50)
-            Me.dgvUsers.MultiSelect = False
-            Me.dgvUsers.Name = "dgvUsers"
-            Me.dgvUsers.ReadOnly = True
-            Me.dgvUsers.RowHeadersVisible = False
-            Me.dgvUsers.RowTemplate.Height = 34
-            Me.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-            Me.dgvUsers.Size = New System.Drawing.Size(1085, 440)
-            Me.dgvUsers.TabIndex = 4
+            Me.btnEditUser.BackColor = System.Drawing.Color.White
+            Me.btnEditUser.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btnEditUser.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnEditUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btnEditUser.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.btnEditUser.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnEditUser.Location = New System.Drawing.Point(455, 1)
+            Me.btnEditUser.Name = "btnEditUser"
+            Me.btnEditUser.Size = New System.Drawing.Size(100, 38)
+            Me.btnEditUser.TabIndex = 2
+            Me.btnEditUser.Text = "Edit"
+            Me.btnEditUser.UseVisualStyleBackColor = False
+            '
+            'btnAddUser
+            '
+            Me.btnAddUser.BackColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
+            Me.btnAddUser.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+            Me.btnAddUser.Font = New System.Drawing.Font("Segoe UI", 9.5!, System.Drawing.FontStyle.Bold)
+            Me.btnAddUser.ForeColor = System.Drawing.Color.White
+            Me.btnAddUser.Location = New System.Drawing.Point(325, 1)
+            Me.btnAddUser.Name = "btnAddUser"
+            Me.btnAddUser.Size = New System.Drawing.Size(120, 38)
+            Me.btnAddUser.TabIndex = 1
+            Me.btnAddUser.Text = "Add User"
+            Me.btnAddUser.UseVisualStyleBackColor = False
+            '
+            'txtSearchUsers
+            '
+            Me.txtSearchUsers.Location = New System.Drawing.Point(0, 4)
+            Me.txtSearchUsers.Name = "txtSearchUsers"
+            Me.txtSearchUsers.Size = New System.Drawing.Size(310, 24)
+            Me.txtSearchUsers.TabIndex = 0
             '
             'pnlHeading
             '
@@ -1367,20 +1368,22 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblPageTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblPageTitle.Location = New System.Drawing.Point(28, 19)
             Me.lblPageTitle.Name = "lblPageTitle"
-            Me.lblPageTitle.Size = New System.Drawing.Size(161, 38)
+            Me.lblPageTitle.Size = New System.Drawing.Size(159, 38)
             Me.lblPageTitle.TabIndex = 0
             Me.lblPageTitle.Text = "Dashboard"
             '
-            'pnlTopBar
+            'dashboardTimer
             '
-            Me.pnlTopBar.BackColor = System.Drawing.Color.White
-            Me.pnlTopBar.Controls.Add(Me.lblAccount)
-            Me.pnlTopBar.Controls.Add(Me.pnlTopAccent)
-            Me.pnlTopBar.Dock = System.Windows.Forms.DockStyle.Top
-            Me.pnlTopBar.Location = New System.Drawing.Point(0, 0)
-            Me.pnlTopBar.Name = "pnlTopBar"
-            Me.pnlTopBar.Size = New System.Drawing.Size(950, 68)
-            Me.pnlTopBar.TabIndex = 0
+            Me.dashboardTimer.Interval = 30000
+            '
+            'pnlTopAccent
+            '
+            Me.pnlTopAccent.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(52, Byte), Integer))
+            Me.pnlTopAccent.Dock = System.Windows.Forms.DockStyle.Bottom
+            Me.pnlTopAccent.Location = New System.Drawing.Point(0, 65)
+            Me.pnlTopAccent.Name = "pnlTopAccent"
+            Me.pnlTopAccent.Size = New System.Drawing.Size(950, 3)
+            Me.pnlTopAccent.TabIndex = 0
             '
             'lblAccount
             '
@@ -1394,18 +1397,16 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblAccount.TabIndex = 1
             Me.lblAccount.TextAlign = System.Drawing.ContentAlignment.MiddleRight
             '
-            'pnlTopAccent
+            'pnlTopBar
             '
-            Me.pnlTopAccent.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(193, Byte), Integer), CType(CType(52, Byte), Integer))
-            Me.pnlTopAccent.Dock = System.Windows.Forms.DockStyle.Bottom
-            Me.pnlTopAccent.Location = New System.Drawing.Point(0, 65)
-            Me.pnlTopAccent.Name = "pnlTopAccent"
-            Me.pnlTopAccent.Size = New System.Drawing.Size(950, 3)
-            Me.pnlTopAccent.TabIndex = 0
-            '
-            'dashboardTimer
-            '
-            Me.dashboardTimer.Interval = 30000
+            Me.pnlTopBar.BackColor = System.Drawing.Color.White
+            Me.pnlTopBar.Controls.Add(Me.lblAccount)
+            Me.pnlTopBar.Controls.Add(Me.pnlTopAccent)
+            Me.pnlTopBar.Dock = System.Windows.Forms.DockStyle.Top
+            Me.pnlTopBar.Location = New System.Drawing.Point(0, 0)
+            Me.pnlTopBar.Name = "pnlTopBar"
+            Me.pnlTopBar.Size = New System.Drawing.Size(950, 68)
+            Me.pnlTopBar.TabIndex = 0
             '
             'MainForm
             '
@@ -1428,28 +1429,28 @@ Namespace RegistrarDocumentRequestSystem
             Me.pnlContent.ResumeLayout(False)
             Me.pnlDashboard.ResumeLayout(False)
             Me.pnlDashboard.PerformLayout()
-            Me.pnlActiveStudents.ResumeLayout(False)
-            Me.pnlActiveStudents.PerformLayout()
-            Me.pnlInProgress.ResumeLayout(False)
-            Me.pnlInProgress.PerformLayout()
-            Me.pnlReady.ResumeLayout(False)
-            Me.pnlReady.PerformLayout()
-            Me.pnlUnpaid.ResumeLayout(False)
-            Me.pnlUnpaid.PerformLayout()
+            CType(Me.dgvRecentRequests, System.ComponentModel.ISupportInitialize).EndInit()
             Me.pnlBacklog.ResumeLayout(False)
             Me.pnlBacklog.PerformLayout()
-            CType(Me.dgvRecentRequests, System.ComponentModel.ISupportInitialize).EndInit()
+            Me.pnlUnpaid.ResumeLayout(False)
+            Me.pnlUnpaid.PerformLayout()
+            Me.pnlReady.ResumeLayout(False)
+            Me.pnlReady.PerformLayout()
+            Me.pnlInProgress.ResumeLayout(False)
+            Me.pnlInProgress.PerformLayout()
+            Me.pnlActiveStudents.ResumeLayout(False)
+            Me.pnlActiveStudents.PerformLayout()
             Me.pnlStudents.ResumeLayout(False)
             Me.pnlStudents.PerformLayout()
             CType(Me.dgvStudents, System.ComponentModel.ISupportInitialize).EndInit()
             Me.pnlDocuments.ResumeLayout(False)
             Me.pnlDocuments.PerformLayout()
-            CType(Me.dgvDocuments, System.ComponentModel.ISupportInitialize).EndInit()
             CType(Me.dgvRecentSlips, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.dgvDocuments, System.ComponentModel.ISupportInitialize).EndInit()
             Me.pnlNewRequest.ResumeLayout(False)
             Me.pnlNewRequest.PerformLayout()
-            CType(Me.nudQuantity, System.ComponentModel.ISupportInitialize).EndInit()
             CType(Me.dgvRequestItems, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.nudQuantity, System.ComponentModel.ISupportInitialize).EndInit()
             Me.pnlRequests.ResumeLayout(False)
             Me.pnlRequests.PerformLayout()
             CType(Me.dgvRequests, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1479,9 +1480,6 @@ Namespace RegistrarDocumentRequestSystem
         Friend WithEvents btnNavUsers As System.Windows.Forms.Button
         Friend WithEvents btnNavSignOut As System.Windows.Forms.Button
         Friend WithEvents pnlMainArea As System.Windows.Forms.Panel
-        Friend WithEvents pnlTopBar As System.Windows.Forms.Panel
-        Friend WithEvents lblAccount As System.Windows.Forms.Label
-        Friend WithEvents pnlTopAccent As System.Windows.Forms.Panel
         Friend WithEvents pnlHeading As System.Windows.Forms.Panel
         Friend WithEvents lblPageTitle As System.Windows.Forms.Label
         Friend WithEvents lblPageSubtitle As System.Windows.Forms.Label
@@ -1527,7 +1525,8 @@ Namespace RegistrarDocumentRequestSystem
         Friend WithEvents btnViewSlipDocument As System.Windows.Forms.Button
         Friend WithEvents dgvRecentSlips As System.Windows.Forms.DataGridView
         Friend WithEvents pnlNewRequest As System.Windows.Forms.Panel
-        Friend WithEvents cboStudent As System.Windows.Forms.ComboBox
+        Friend WithEvents txtSearchStudent As System.Windows.Forms.TextBox
+        Friend WithEvents lstStudentResults As System.Windows.Forms.ListBox
         Friend WithEvents lblStudentInfo As System.Windows.Forms.Label
         Friend WithEvents lblStudentError As System.Windows.Forms.Label
         Friend WithEvents txtPurpose As System.Windows.Forms.TextBox
@@ -1563,5 +1562,8 @@ Namespace RegistrarDocumentRequestSystem
         Friend WithEvents btnEditUser As System.Windows.Forms.Button
         Friend WithEvents btnToggleUserStatus As System.Windows.Forms.Button
         Friend WithEvents dgvUsers As System.Windows.Forms.DataGridView
+        Friend WithEvents pnlTopBar As Windows.Forms.Panel
+        Friend WithEvents lblAccount As Windows.Forms.Label
+        Friend WithEvents pnlTopAccent As Windows.Forms.Panel
     End Class
 End Namespace
