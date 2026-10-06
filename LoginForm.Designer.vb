@@ -38,8 +38,9 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblPasswordError = New System.Windows.Forms.Label()
             Me.btnLogin = New System.Windows.Forms.Button()
             Me.pnlCardLine = New System.Windows.Forms.Panel()
-            CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+            Me.chkShowPassword = New System.Windows.Forms.CheckBox()
             Me.pnlBrand.SuspendLayout()
+            CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             '
             'pnlBrand
@@ -58,7 +59,6 @@ Namespace RegistrarDocumentRequestSystem
             'picLogo
             '
             Me.picLogo.BackColor = System.Drawing.Color.Transparent
-            Me.picLogo.Image = AppTheme.AppLogo
             Me.picLogo.Location = New System.Drawing.Point(44, 96)
             Me.picLogo.Name = "picLogo"
             Me.picLogo.Size = New System.Drawing.Size(80, 80)
@@ -73,7 +73,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblBrand.ForeColor = System.Drawing.Color.White
             Me.lblBrand.Location = New System.Drawing.Point(44, 202)
             Me.lblBrand.Name = "lblBrand"
-            Me.lblBrand.Size = New System.Drawing.Size(262, 28)
+            Me.lblBrand.Size = New System.Drawing.Size(264, 28)
             Me.lblBrand.TabIndex = 1
             Me.lblBrand.Text = "OFFICE OF THE REGISTRAR"
             '
@@ -101,7 +101,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblHeading.ForeColor = System.Drawing.Color.FromArgb(CType(CType(31, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(55, Byte), Integer))
             Me.lblHeading.Location = New System.Drawing.Point(390, 82)
             Me.lblHeading.Name = "lblHeading"
-            Me.lblHeading.Size = New System.Drawing.Size(113, 41)
+            Me.lblHeading.Size = New System.Drawing.Size(116, 41)
             Me.lblHeading.TabIndex = 1
             Me.lblHeading.Text = "Sign in"
             '
@@ -112,7 +112,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblSubheading.ForeColor = System.Drawing.Color.FromArgb(CType(CType(101, Byte), Integer), CType(CType(116, Byte), Integer), CType(CType(139, Byte), Integer))
             Me.lblSubheading.Location = New System.Drawing.Point(393, 126)
             Me.lblSubheading.Name = "lblSubheading"
-            Me.lblSubheading.Size = New System.Drawing.Size(332, 19)
+            Me.lblSubheading.Size = New System.Drawing.Size(317, 19)
             Me.lblSubheading.TabIndex = 2
             Me.lblSubheading.Text = "Use your authorized registrar account to continue."
             '
@@ -202,6 +202,16 @@ Namespace RegistrarDocumentRequestSystem
             Me.pnlCardLine.Size = New System.Drawing.Size(350, 3)
             Me.pnlCardLine.TabIndex = 10
             '
+            'chkShowPassword
+            '
+            Me.chkShowPassword.AutoSize = True
+            Me.chkShowPassword.Location = New System.Drawing.Point(625, 305)
+            Me.chkShowPassword.Name = "chkShowPassword"
+            Me.chkShowPassword.Size = New System.Drawing.Size(118, 21)
+            Me.chkShowPassword.TabIndex = 12
+            Me.chkShowPassword.Text = "Show Password"
+            Me.chkShowPassword.UseVisualStyleBackColor = True
+            '
             'LoginForm
             '
             Me.AcceptButton = Me.btnLogin
@@ -209,6 +219,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(251, Byte), Integer))
             Me.ClientSize = New System.Drawing.Size(820, 480)
+            Me.Controls.Add(Me.chkShowPassword)
             Me.Controls.Add(Me.pnlCardLine)
             Me.Controls.Add(Me.btnLogin)
             Me.Controls.Add(Me.lblPasswordError)
@@ -226,9 +237,9 @@ Namespace RegistrarDocumentRequestSystem
             Me.Name = "LoginForm"
             Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
             Me.Text = "Registrar Document Request System - Sign in"
-            CType(Me.picLogo, System.ComponentModel.ISupportInitialize).EndInit()
             Me.pnlBrand.ResumeLayout(False)
             Me.pnlBrand.PerformLayout()
+            CType(Me.picLogo, System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
             Me.PerformLayout()
 
@@ -249,5 +260,6 @@ Namespace RegistrarDocumentRequestSystem
         Friend WithEvents lblPasswordError As System.Windows.Forms.Label
         Friend WithEvents btnLogin As System.Windows.Forms.Button
         Friend WithEvents pnlCardLine As System.Windows.Forms.Panel
+        Friend WithEvents chkShowPassword As Windows.Forms.CheckBox
     End Class
 End Namespace

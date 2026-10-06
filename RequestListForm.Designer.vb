@@ -18,9 +18,9 @@ Namespace RegistrarDocumentRequestSystem
 
         <System.Diagnostics.DebuggerStepThrough()>
         Private Sub InitializeComponent()
-            Dim dgvCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-            Dim dgvCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-            Dim dgvCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+            Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+            Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+            Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
             Me.pnlHeader = New System.Windows.Forms.Panel()
             Me.lblSubtitle = New System.Windows.Forms.Label()
             Me.lblTitle = New System.Windows.Forms.Label()
@@ -42,6 +42,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.colReqTotal = New System.Windows.Forms.DataGridViewTextBoxColumn()
             Me.colReqPayment = New System.Windows.Forms.DataGridViewTextBoxColumn()
             Me.colReqStatus = New System.Windows.Forms.DataGridViewTextBoxColumn()
+            Me.TextBox1 = New System.Windows.Forms.TextBox()
             Me.pnlHeader.SuspendLayout()
             Me.pnlTableCard.SuspendLayout()
             CType(Me.dgvRequests, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,7 +66,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblSubtitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(116, Byte), Integer), CType(CType(139, Byte), Integer))
             Me.lblSubtitle.Location = New System.Drawing.Point(0, 34)
             Me.lblSubtitle.Name = "lblSubtitle"
-            Me.lblSubtitle.Size = New System.Drawing.Size(248, 17)
+            Me.lblSubtitle.Size = New System.Drawing.Size(278, 17)
             Me.lblSubtitle.TabIndex = 1
             Me.lblSubtitle.Text = "View and manage student document requests."
             '
@@ -76,7 +77,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(68, Byte), Integer))
             Me.lblTitle.Location = New System.Drawing.Point(-2, 0)
             Me.lblTitle.Name = "lblTitle"
-            Me.lblTitle.Size = New System.Drawing.Size(175, 37)
+            Me.lblTitle.Size = New System.Drawing.Size(172, 37)
             Me.lblTitle.TabIndex = 0
             Me.lblTitle.Text = "Request List"
             '
@@ -198,7 +199,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblCardTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(68, Byte), Integer))
             Me.lblCardTitle.Location = New System.Drawing.Point(16, 16)
             Me.lblCardTitle.Name = "lblCardTitle"
-            Me.lblCardTitle.Size = New System.Drawing.Size(155, 21)
+            Me.lblCardTitle.Size = New System.Drawing.Size(162, 21)
             Me.lblCardTitle.TabIndex = 0
             Me.lblCardTitle.Text = "Document Requests"
             '
@@ -215,27 +216,27 @@ Namespace RegistrarDocumentRequestSystem
             Me.dgvRequests.BorderStyle = System.Windows.Forms.BorderStyle.None
             Me.dgvRequests.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
             Me.dgvRequests.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-            dgvCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-            dgvCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(252, Byte), Integer))
-            dgvCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-            dgvCellStyle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(105, Byte), Integer))
-            dgvCellStyle1.Padding = New System.Windows.Forms.Padding(8, 0, 0, 0)
-            dgvCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(252, Byte), Integer))
-            dgvCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(105, Byte), Integer))
-            dgvCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-            Me.dgvRequests.ColumnHeadersDefaultCellStyle = dgvCellStyle1
+            DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+            DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(252, Byte), Integer))
+            DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+            DataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(105, Byte), Integer))
+            DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(8, 0, 0, 0)
+            DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(252, Byte), Integer))
+            DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(105, Byte), Integer))
+            DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+            Me.dgvRequests.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
             Me.dgvRequests.ColumnHeadersHeight = 40
             Me.dgvRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
             Me.dgvRequests.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colReqNo, Me.colReqDate, Me.colReqStudentID, Me.colReqStudentName, Me.colReqDocuments, Me.colReqTotal, Me.colReqPayment, Me.colReqStatus})
-            dgvCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-            dgvCellStyle2.BackColor = System.Drawing.Color.White
-            dgvCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-            dgvCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(23, Byte), Integer), CType(CType(42, Byte), Integer))
-            dgvCellStyle2.Padding = New System.Windows.Forms.Padding(8, 0, 0, 0)
-            dgvCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(255, Byte), Integer))
-            dgvCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(23, Byte), Integer), CType(CType(42, Byte), Integer))
-            dgvCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-            Me.dgvRequests.DefaultCellStyle = dgvCellStyle2
+            DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+            DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+            DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+            DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(23, Byte), Integer), CType(CType(42, Byte), Integer))
+            DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(8, 0, 0, 0)
+            DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(255, Byte), Integer))
+            DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(23, Byte), Integer), CType(CType(42, Byte), Integer))
+            DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+            Me.dgvRequests.DefaultCellStyle = DataGridViewCellStyle2
             Me.dgvRequests.EnableHeadersVisualStyles = False
             Me.dgvRequests.GridColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(249, Byte), Integer))
             Me.dgvRequests.Location = New System.Drawing.Point(0, 56)
@@ -243,14 +244,14 @@ Namespace RegistrarDocumentRequestSystem
             Me.dgvRequests.Name = "dgvRequests"
             Me.dgvRequests.ReadOnly = True
             Me.dgvRequests.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-            dgvCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-            dgvCellStyle3.BackColor = System.Drawing.Color.White
-            dgvCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-            dgvCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-            dgvCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-            dgvCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-            dgvCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-            Me.dgvRequests.RowHeadersDefaultCellStyle = dgvCellStyle3
+            DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+            DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+            DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+            DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+            DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+            DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+            DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+            Me.dgvRequests.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
             Me.dgvRequests.RowHeadersVisible = False
             Me.dgvRequests.RowTemplate.Height = 36
             Me.dgvRequests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -321,12 +322,20 @@ Namespace RegistrarDocumentRequestSystem
             Me.colReqStatus.Name = "colReqStatus"
             Me.colReqStatus.ReadOnly = True
             '
+            'TextBox1
+            '
+            Me.TextBox1.Location = New System.Drawing.Point(29, 97)
+            Me.TextBox1.Name = "TextBox1"
+            Me.TextBox1.Size = New System.Drawing.Size(23, 24)
+            Me.TextBox1.TabIndex = 5
+            '
             'RequestListForm
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(247, Byte), Integer), CType(CType(251, Byte), Integer))
             Me.ClientSize = New System.Drawing.Size(950, 650)
+            Me.Controls.Add(Me.TextBox1)
             Me.Controls.Add(Me.pnlTableCard)
             Me.Controls.Add(Me.cboPaymentStatusFilter)
             Me.Controls.Add(Me.cboRequestStatusFilter)
@@ -368,5 +377,6 @@ Namespace RegistrarDocumentRequestSystem
         Friend WithEvents colReqTotal As System.Windows.Forms.DataGridViewTextBoxColumn
         Friend WithEvents colReqPayment As System.Windows.Forms.DataGridViewTextBoxColumn
         Friend WithEvents colReqStatus As System.Windows.Forms.DataGridViewTextBoxColumn
+        Friend WithEvents TextBox1 As Windows.Forms.TextBox
     End Class
 End Namespace
