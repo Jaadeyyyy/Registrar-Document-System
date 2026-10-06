@@ -18,9 +18,9 @@ Namespace RegistrarDocumentRequestSystem
 
         <System.Diagnostics.DebuggerStepThrough()>
         Private Sub InitializeComponent()
-            Dim dgvCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-            Dim dgvCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-            Dim dgvCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+            Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+            Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+            Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
             Me.pnlHeader = New System.Windows.Forms.Panel()
             Me.lblSubtitle = New System.Windows.Forms.Label()
             Me.lblTitle = New System.Windows.Forms.Label()
@@ -87,7 +87,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblSubtitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(116, Byte), Integer), CType(CType(139, Byte), Integer))
             Me.lblSubtitle.Location = New System.Drawing.Point(0, 34)
             Me.lblSubtitle.Name = "lblSubtitle"
-            Me.lblSubtitle.Size = New System.Drawing.Size(262, 17)
+            Me.lblSubtitle.Size = New System.Drawing.Size(293, 17)
             Me.lblSubtitle.TabIndex = 1
             Me.lblSubtitle.Text = "Create a document request for an active student."
             '
@@ -137,7 +137,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblSelectStudentPrompt.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(116, Byte), Integer), CType(CType(139, Byte), Integer))
             Me.lblSelectStudentPrompt.Location = New System.Drawing.Point(16, 86)
             Me.lblSelectStudentPrompt.Name = "lblSelectStudentPrompt"
-            Me.lblSelectStudentPrompt.Size = New System.Drawing.Size(83, 13)
+            Me.lblSelectStudentPrompt.Size = New System.Drawing.Size(108, 13)
             Me.lblSelectStudentPrompt.TabIndex = 7
             Me.lblSelectStudentPrompt.Text = "Matching Students:"
             '
@@ -148,7 +148,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblStudentYearSectionVal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(85, Byte), Integer))
             Me.lblStudentYearSectionVal.Location = New System.Drawing.Point(230, 168)
             Me.lblStudentYearSectionVal.Name = "lblStudentYearSectionVal"
-            Me.lblStudentYearSectionVal.Size = New System.Drawing.Size(117, 15)
+            Me.lblStudentYearSectionVal.Size = New System.Drawing.Size(85, 15)
             Me.lblStudentYearSectionVal.TabIndex = 6
             Me.lblStudentYearSectionVal.Text = "Year & Section: -"
             '
@@ -159,7 +159,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblStudentCourseVal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(85, Byte), Integer))
             Me.lblStudentCourseVal.Location = New System.Drawing.Point(16, 168)
             Me.lblStudentCourseVal.Name = "lblStudentCourseVal"
-            Me.lblStudentCourseVal.Size = New System.Drawing.Size(56, 15)
+            Me.lblStudentCourseVal.Size = New System.Drawing.Size(55, 15)
             Me.lblStudentCourseVal.TabIndex = 5
             Me.lblStudentCourseVal.Text = "Course: -"
             '
@@ -170,7 +170,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblStudentNameVal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(23, Byte), Integer), CType(CType(42, Byte), Integer))
             Me.lblStudentNameVal.Location = New System.Drawing.Point(230, 142)
             Me.lblStudentNameVal.Name = "lblStudentNameVal"
-            Me.lblStudentNameVal.Size = New System.Drawing.Size(52, 15)
+            Me.lblStudentNameVal.Size = New System.Drawing.Size(51, 15)
             Me.lblStudentNameVal.TabIndex = 4
             Me.lblStudentNameVal.Text = "Name: -"
             '
@@ -181,7 +181,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblStudentIdVal.ForeColor = System.Drawing.Color.FromArgb(CType(CType(8, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(112, Byte), Integer))
             Me.lblStudentIdVal.Location = New System.Drawing.Point(16, 142)
             Me.lblStudentIdVal.Name = "lblStudentIdVal"
-            Me.lblStudentIdVal.Size = New System.Drawing.Size(149, 15)
+            Me.lblStudentIdVal.Size = New System.Drawing.Size(154, 15)
             Me.lblStudentIdVal.TabIndex = 3
             Me.lblStudentIdVal.Text = "Student ID: None selected"
             '
@@ -202,7 +202,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblSearchStudentTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(105, Byte), Integer))
             Me.lblSearchStudentTitle.Location = New System.Drawing.Point(16, 40)
             Me.lblSearchStudentTitle.Name = "lblSearchStudentTitle"
-            Me.lblSearchStudentTitle.Size = New System.Drawing.Size(189, 15)
+            Me.lblSearchStudentTitle.Size = New System.Drawing.Size(192, 15)
             Me.lblSearchStudentTitle.TabIndex = 1
             Me.lblSearchStudentTitle.Text = "Search by Student ID, LRN, Name"
             '
@@ -213,7 +213,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblStudentCardTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(68, Byte), Integer))
             Me.lblStudentCardTitle.Location = New System.Drawing.Point(16, 12)
             Me.lblStudentCardTitle.Name = "lblStudentCardTitle"
-            Me.lblStudentCardTitle.Size = New System.Drawing.Size(150, 20)
+            Me.lblStudentCardTitle.Size = New System.Drawing.Size(153, 20)
             Me.lblStudentCardTitle.TabIndex = 0
             Me.lblStudentCardTitle.Text = "Student Information"
             '
@@ -249,7 +249,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblPurposeTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(68, Byte), Integer))
             Me.lblPurposeTitle.Location = New System.Drawing.Point(16, 12)
             Me.lblPurposeTitle.Name = "lblPurposeTitle"
-            Me.lblPurposeTitle.Size = New System.Drawing.Size(147, 20)
+            Me.lblPurposeTitle.Size = New System.Drawing.Size(146, 20)
             Me.lblPurposeTitle.TabIndex = 0
             Me.lblPurposeTitle.Text = "Purpose of Request"
             '
@@ -278,7 +278,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblUnitFee.ForeColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(101, Byte), Integer), CType(CType(52, Byte), Integer))
             Me.lblUnitFee.Location = New System.Drawing.Point(16, 72)
             Me.lblUnitFee.Name = "lblUnitFee"
-            Me.lblUnitFee.Size = New System.Drawing.Size(73, 15)
+            Me.lblUnitFee.Size = New System.Drawing.Size(65, 15)
             Me.lblUnitFee.TabIndex = 6
             Me.lblUnitFee.Text = "Fee: ₱0.00"
             '
@@ -330,7 +330,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.cboDocument.FormattingEnabled = True
             Me.cboDocument.Location = New System.Drawing.Point(16, 42)
             Me.cboDocument.Name = "cboDocument"
-            Me.cboDocument.Size = New System.Drawing.Size(204, 24)
+            Me.cboDocument.Size = New System.Drawing.Size(204, 25)
             Me.cboDocument.TabIndex = 2
             '
             'lblDocSelectTitle
@@ -340,7 +340,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblDocSelectTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(105, Byte), Integer))
             Me.lblDocSelectTitle.Location = New System.Drawing.Point(16, 26)
             Me.lblDocSelectTitle.Name = "lblDocSelectTitle"
-            Me.lblDocSelectTitle.Size = New System.Drawing.Size(89, 13)
+            Me.lblDocSelectTitle.Size = New System.Drawing.Size(93, 13)
             Me.lblDocSelectTitle.TabIndex = 1
             Me.lblDocSelectTitle.Text = "Select Document"
             '
@@ -351,7 +351,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblDocCardTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(68, Byte), Integer))
             Me.lblDocCardTitle.Location = New System.Drawing.Point(16, 6)
             Me.lblDocCardTitle.Name = "lblDocCardTitle"
-            Me.lblDocCardTitle.Size = New System.Drawing.Size(185, 20)
+            Me.lblDocCardTitle.Size = New System.Drawing.Size(195, 20)
             Me.lblDocCardTitle.TabIndex = 0
             Me.lblDocCardTitle.Text = "Add Document to Request"
             '
@@ -393,7 +393,7 @@ Namespace RegistrarDocumentRequestSystem
             Me.lblItemsCardTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(68, Byte), Integer))
             Me.lblItemsCardTitle.Location = New System.Drawing.Point(16, 14)
             Me.lblItemsCardTitle.Name = "lblItemsCardTitle"
-            Me.lblItemsCardTitle.Size = New System.Drawing.Size(123, 20)
+            Me.lblItemsCardTitle.Size = New System.Drawing.Size(127, 20)
             Me.lblItemsCardTitle.TabIndex = 0
             Me.lblItemsCardTitle.Text = "Requested Items"
             '
@@ -410,27 +410,27 @@ Namespace RegistrarDocumentRequestSystem
             Me.dgvRequestItems.BorderStyle = System.Windows.Forms.BorderStyle.None
             Me.dgvRequestItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
             Me.dgvRequestItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-            dgvCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-            dgvCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(252, Byte), Integer))
-            dgvCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-            dgvCellStyle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(105, Byte), Integer))
-            dgvCellStyle1.Padding = New System.Windows.Forms.Padding(8, 0, 0, 0)
-            dgvCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(252, Byte), Integer))
-            dgvCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(105, Byte), Integer))
-            dgvCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-            Me.dgvRequestItems.ColumnHeadersDefaultCellStyle = dgvCellStyle1
+            DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+            DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(252, Byte), Integer))
+            DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+            DataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(105, Byte), Integer))
+            DataGridViewCellStyle1.Padding = New System.Windows.Forms.Padding(8, 0, 0, 0)
+            DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(248, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(252, Byte), Integer))
+            DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(105, Byte), Integer))
+            DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+            Me.dgvRequestItems.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
             Me.dgvRequestItems.ColumnHeadersHeight = 36
             Me.dgvRequestItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
             Me.dgvRequestItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colItemDocID, Me.colItemDocName, Me.colItemFee, Me.colItemQty, Me.colItemSubtotal})
-            dgvCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-            dgvCellStyle2.BackColor = System.Drawing.Color.White
-            dgvCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-            dgvCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(23, Byte), Integer), CType(CType(42, Byte), Integer))
-            dgvCellStyle2.Padding = New System.Windows.Forms.Padding(8, 0, 0, 0)
-            dgvCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(255, Byte), Integer))
-            dgvCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(23, Byte), Integer), CType(CType(42, Byte), Integer))
-            dgvCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-            Me.dgvRequestItems.DefaultCellStyle = dgvCellStyle2
+            DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+            DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+            DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+            DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(23, Byte), Integer), CType(CType(42, Byte), Integer))
+            DataGridViewCellStyle2.Padding = New System.Windows.Forms.Padding(8, 0, 0, 0)
+            DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(238, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(255, Byte), Integer))
+            DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(23, Byte), Integer), CType(CType(42, Byte), Integer))
+            DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+            Me.dgvRequestItems.DefaultCellStyle = DataGridViewCellStyle2
             Me.dgvRequestItems.EnableHeadersVisualStyles = False
             Me.dgvRequestItems.GridColor = System.Drawing.Color.FromArgb(CType(CType(241, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(249, Byte), Integer))
             Me.dgvRequestItems.Location = New System.Drawing.Point(0, 50)
@@ -438,14 +438,14 @@ Namespace RegistrarDocumentRequestSystem
             Me.dgvRequestItems.Name = "dgvRequestItems"
             Me.dgvRequestItems.ReadOnly = True
             Me.dgvRequestItems.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-            dgvCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-            dgvCellStyle3.BackColor = System.Drawing.Color.White
-            dgvCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-            dgvCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-            dgvCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-            dgvCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-            dgvCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-            Me.dgvRequestItems.RowHeadersDefaultCellStyle = dgvCellStyle3
+            DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+            DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+            DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+            DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+            DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+            DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+            DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+            Me.dgvRequestItems.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
             Me.dgvRequestItems.RowHeadersVisible = False
             Me.dgvRequestItems.RowTemplate.Height = 34
             Me.dgvRequestItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect

@@ -293,5 +293,9 @@ Namespace RegistrarDocumentRequestSystem
                 End If
             End If
         End Sub
+
+        Private Sub pnlHeader_Paint(sender As Object, e As PaintEventArgs) Handles pnlHeader.Paint
+
+        End Sub
     End Class
 End Namespace
